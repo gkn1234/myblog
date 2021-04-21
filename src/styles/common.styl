@@ -1,0 +1,102 @@
+@import './basic.styl'
+@import './var.styl'
+
+// 定义基本样式
+
+html
+body
+  background-color: $background-color
+
+/* @section 页面框架布局CSS */
+// 页面顶部区域
+.app-header
+  position: fixed
+  width: 100%
+  height: $header-height
+
+// 页面视窗区域
+.app-viewport
+  max-width: $viewport-width
+  width: 100%
+  padding-left: 20px
+  padding-right: 20px
+  margin-left: auto
+  margin-right: auto
+
+/* @section Flex布局相关 */
+.flex
+  display flex
+.inline-flex
+  display inline-flex
+  flex-direction row
+
+.flex-wrap
+  flex-wrap wrap
+.flex-r-wrap
+  flex-wrap wrap-reverse
+
+.flex-col
+  flex-direction column
+.flex-r-row
+  flex-direction row-reverse
+.flex-r-col
+  flex-direction column-reverse
+
+.flex-j-start
+  justify-content flex-start
+.flex-j-end
+  justify-content flex-end
+.flex-j-center
+  justify-content center
+.flex-j-around
+  justify-content space-around
+.flex-j-between
+  justify-content space-between
+
+.flex-a-start
+  align-items flex-start
+.flex-a-end
+  align-items flex-end
+.flex-a-center
+  align-items center
+.flex-a-baseline
+  align-items baseline
+
+.flex-ac-start
+  align-content flex-start
+.flex-ac-end
+  align-content flex-end
+.flex-ac-center
+  align-content center
+.flex-ac-between
+  align-content space-between
+.flex-ac-around
+  align-content space-around
+
+.flex-s-0
+  flex-shrink 0
+.flex-s-1
+  flex-shrink 1
+
+for i in 0 1 2 3 4
+  .flex-g-{i}
+    flex-grow i
+
+.flex-as-start
+  align-self flex-start
+.flex-as-end
+  align-self flex-end
+.flex-as-center
+  align-self center
+.flex-as-baseline
+  align-self baseline
+.flex-as-stretch
+  align-self stretch
+
+/* @section 间距设置 */
+for direction in -top -bottom -left -right ''
+  for i in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+    .margin{direction}-{i}
+      margin{direction}: 1px * i !important
+    .padding{direction}-{i}
+      padding{direction}: 1px * i !important
