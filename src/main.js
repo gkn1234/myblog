@@ -4,11 +4,12 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 09:01:31
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-21 16:03:59
+ * @LastEditTime: 2021-04-25 10:40:24
  */
 import App from './App.vue'
 import { createSSRApp } from 'vue'
 import { createRouter } from './router'
+import { media } from './directives/index'
 import './styles/common.styl'
 
 // SSR requires a fresh app instance per request, therefore we export a function
@@ -18,5 +19,8 @@ export function createApp() {
   const app = createSSRApp(App)
   const router = createRouter()
   app.use(router)
+
+  app.directive('media', media)
+
   return { app, router }
 }

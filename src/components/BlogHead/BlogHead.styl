@@ -4,16 +4,51 @@
   position: fixed
   width: 100%
   height: $header-height
-  background-color: $header-color
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5)
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3)
+  background-color: $white
 
 .blog-header-logo
-  padding-top: 20px
-  padding-bottom: 20px
+  img
+    height: $header-height - 10px
 
-.blog-header-link
+.blog-header-nav
   height: $header-height
+  position: relative
+
   a
     display: block
     line-height: ($header-height / 2)
     padding: ($header-height / 4) 20px
+    color: $word-color
+
+  &::after
+    content: ""
+    height: 3px
+    background-color $theme-color
+    position absolute
+    bottom: 0px
+
+  &.active
+    a
+      color: $theme-color
+
+    &::after
+      width: 100%
+
+// 透明主题
+.transparent
+  // 根节点，整体背景
+  &.blog-header
+    background-color: rgba(0,0,0,0)
+    box-shadow: none
+  
+  // 页面标签变白
+  .blog-header-nav
+    a
+      color: $white
+    
+    &.active
+      &::after
+        background-color $white
+
+
