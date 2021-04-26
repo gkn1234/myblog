@@ -4,12 +4,14 @@
  * @Author: Guo Kainan
  * @Date: 2020-12-21 09:07:25
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-21 13:45:39
+ * @LastEditTime: 2021-04-26 09:09:28
  */
 // 全局配置，只需要在核心文件匹配一次，之后会被注册为全局变量
 const CONFIG = require('./config')
 const fs = require('fs')
 const express = require('express')
+
+console.log(CONFIG.isProd, process.env.NODE_ENV)
 
 async function createApp () {
   const app = express()
