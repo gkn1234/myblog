@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 15:34:33
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-25 10:42:22
+ * @LastEditTime: 2021-04-26 18:45:03
 -->
 <template>
   <header class="blog-header" :class="{ transparent: isTransparent }"
@@ -27,6 +27,8 @@
           <router-link :to="item.to">{{ item.text }}</router-link>
         </li>
       </ul>
+
+      
     </div>
   </header>
 </template>

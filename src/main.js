@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 09:01:31
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-25 10:40:24
+ * @LastEditTime: 2021-04-26 16:24:02
  */
 import App from './App.vue'
 import { createSSRApp } from 'vue'
@@ -20,6 +20,7 @@ export function createApp() {
   const router = createRouter()
   app.use(router)
 
+  // 指令注册
   app.directive('media', media)
 
   return { app, router }

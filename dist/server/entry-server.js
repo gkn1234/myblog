@@ -103,6 +103,8 @@ _sfc_main$3.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = new Set())).add("F:/project/myblog/src/components/BlogHead/BlogHead.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
+var logoUrl = "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/img/logo.png";
+var logoTransparentUrl = "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/img/logo-transparent.png";
 var _sfc_main$2 = vue.defineComponent({
   name: "Base",
   components: {
@@ -120,12 +122,15 @@ var _sfc_main$2 = vue.defineComponent({
       const index = links.findIndex((data) => data.to === route.path);
       return index >= 0 ? index : 0;
     });
+    console.log(logoUrl, logoTransparentUrl);
     function handler() {
       console.log("\u89E6\u53D1");
     }
     return {
       links,
       activeIndex,
+      logoUrl,
+      logoTransparentUrl,
       handler
     };
   }
@@ -138,8 +143,8 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   _push(serverRenderer.ssrRenderComponent(_component_BlogHead, {
     links: _ctx.links,
     activeIndex: _ctx.activeIndex,
-    logoSrc: "/img/logo.png",
-    logoTransparentSrc: "/img/logo-transparent.png"
+    logoSrc: _ctx.logoUrl,
+    logoTransparentSrc: _ctx.logoTransparentUrl
   }, null, _parent));
   _push(serverRenderer.ssrRenderComponent(_component_router_view, null, null, _parent));
   _push(`<!--]-->`);
@@ -1638,7 +1643,7 @@ var _sfc_main = vue.defineComponent({
     };
   }
 });
-var Index_styl_vue_type_style_index_0_src_lang = '.index-main {\n  width: 100%;\n  height: 100%;\n}\n.index-banner {\n  width: 100%;\n  height: 640px;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center bottom;\n  background-image: url("/img/logo.png");\n  background-attachment: fixed;\n}\n';
+var Index_styl_vue_type_style_index_0_src_lang = '.index-main {\n  width: 100%;\n  height: 100%;\n}\n.index-banner {\n  width: 100%;\n  height: 640px;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center bottom;\n  background-image: url("https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/img/logo.png");\n  background-attachment: fixed;\n}\n';
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<main${serverRenderer.ssrRenderAttrs(vue.mergeProps({class: "index-main"}, _attrs))}><div class="index-banner"></div></main>`);
 }

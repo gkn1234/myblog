@@ -1,1 +1,0 @@
-import{d as a,n,q as e,o as s,a as r,b as d}from"./vendor.f6e3604d.js";var o=a({name:"Index",setup:(a,{emit:s})=>(n((()=>{s("haha")})),{backgroundSrc:e("/img/logo.png")})});const i={class:"index-main"},t=d("div",{class:"index-banner"},null,-1);o.render=function(a,n,e,d,o,m){return s(),r("main",i,[t])};export default o;

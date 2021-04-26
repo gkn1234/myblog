@@ -1,0 +1,40 @@
+component: express
+name: express-HxR2baZU3
+org: '1255355961'
+app: myblog
+stage: prod
+inputs:
+  region: ap-guangzhou
+  functionName: express_component_fug3oc
+  runtime: Nodejs12.16
+  serviceId: service-i8gwrsjk
+  src:
+    src: ./
+    exclude:
+      - .env
+      - public/**
+      - note/**
+      - node_modules/**
+  apigatewayConf:
+    serviceTimeout: 60
+    autoCreateDns: false
+    protocols:
+      - http
+      - https
+    environment: release
+  functionConf:
+    eip: true
+    timeout: 10
+    memorySize: 3072
+    environment:
+      variables:
+        NODE_ENV: production
+  layers:
+    - name: myblog-layer
+      version: 8
+  staticConf:
+    cosConf:
+      bucket: myblog
+      sources:
+        - src: dist/client
+          targetDir: /

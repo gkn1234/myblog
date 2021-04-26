@@ -4,28 +4,21 @@
  * @Author: Guo Kainan
  * @Date: 2020-12-21 09:07:25
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-26 10:13:49
+ * @LastEditTime: 2021-04-26 18:47:42
  */
-// 全局配置，只需要在核心文件匹配一次，之后会被注册为全局变量
-const CONFIG = require('./config')
+// 全局配置，只需要在核心文件匹配一次，之后注册为全局变量
+const CONFIG = require('../app.config')
+CONFIG.mountGlo()
+
 const fs = require('fs')
 const express = require('express')
 
-console.log(CONFIG.isProd, process.env.NODE_ENV)
+const app = express()
 
-async function createApp () {
-  const app = express()
-
-  // 初始化一些中间件功能
-  const logger = require('morgan')
-  app.use(logger('dev'))
-
+// 初始化函数，为了兼容serverless
+app.slsInitialize = async () => {
   app.use(express.json())
   app.use(express.urlencoded({ extended: false }))
-
-  // CORS跨域处理
-  const cors = require('cors')
-  app.use(cors(CONFIG.cors))
 
   // SSR建立服务
   let ssrViteDevServer
@@ -47,21 +40,21 @@ async function createApp () {
     app.use(ssrViteDevServer.middlewares)
   }
   else {
-    const compression = require('compression')
     const serverStatic = require('serve-static')
-
-    // 生产环境下，使用静态资源
-    app.use(compression())
+    
     app.use(serverStatic(CONFIG.des('dist/client'), {
       index: false
     }))
   }
 
+  // API路由处理
+  const useApi = require('./api/index')
+  useApi(app)
+
   // SSR路由处理
   app.use('*', async function (req, res) {
     try {
       const url = req.originalUrl
-      console.log(url)
   
       let template, render, manifest = ''
   
@@ -88,7 +81,6 @@ async function createApp () {
         .replace(`<!--preload-links-->`, preloadLinks)
         .replace(`<!--app-html-->`, appHtml)
       
-      console.log(html)
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
     } 
     catch (e) {
@@ -99,10 +91,7 @@ async function createApp () {
     }
   })
 
-  // API路由处理
-
   // 没有匹配到任何路由
-  const createError = require('http-errors')
   app.use((err, req, res, next) => {
     console.log('error', err)
     
@@ -126,10 +115,6 @@ async function createApp () {
     console.log(err.stack)
   })
   */  
-  
-  return app
 }
 
-
-
-module.exports = createApp
+module.exports = app

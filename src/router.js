@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 11:09:14
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-21 12:06:50
+ * @LastEditTime: 2021-04-26 18:44:15
  */
 import {
   createMemoryHistory,
@@ -16,6 +16,10 @@ const routes = [
   {
     path: '/',
     component: () => import('@/pages/Index/Index.vue')
+  },
+  {
+    path: '/blog',
+    component: () => import('@/pages/Blog/Blog.vue')
   }
 ]
 

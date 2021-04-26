@@ -1,32 +1,32 @@
 {
   "F:/project/myblog/node_modules/@vue/shared/dist/shared.esm-bundler.js": [
-    "/assets/vendor.f6e3604d.js"
+    "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/assets/vendor.f6e3604d.js"
   ],
   "F:/project/myblog/node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [
-    "/assets/vendor.f6e3604d.js"
+    "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/assets/vendor.f6e3604d.js"
   ],
   "F:/project/myblog/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [
-    "/assets/vendor.f6e3604d.js"
+    "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/assets/vendor.f6e3604d.js"
   ],
   "F:/project/myblog/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [
-    "/assets/vendor.f6e3604d.js"
+    "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/assets/vendor.f6e3604d.js"
   ],
   "F:/project/myblog/node_modules/vue/dist/vue.runtime.esm-bundler.js": [
-    "/assets/vendor.f6e3604d.js"
+    "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/assets/vendor.f6e3604d.js"
   ],
   "F:/project/myblog/node_modules/vue-router/dist/vue-router.esm-bundler.js": [
-    "/assets/vendor.f6e3604d.js"
+    "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/assets/vendor.f6e3604d.js"
   ],
   "F:/project/myblog/src/pages/Index/Index.js?vue&type=script&src&lang.js": [
-    "/assets/Index.de394303.js",
-    "/assets/Index.55290b6c.css"
+    "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/assets/Index.df427c80.js",
+    "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/assets/Index.521e7f2c.css"
   ],
   "F:/project/myblog/src/pages/Index/Index.styl?vue&type=style&index=0&src&lang.stylus": [
-    "/assets/Index.de394303.js",
-    "/assets/Index.55290b6c.css"
+    "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/assets/Index.df427c80.js",
+    "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/assets/Index.521e7f2c.css"
   ],
   "F:/project/myblog/src/pages/Index/Index.vue": [
-    "/assets/Index.de394303.js",
-    "/assets/Index.55290b6c.css"
+    "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/assets/Index.df427c80.js",
+    "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/assets/Index.521e7f2c.css"
   ]
 }
