@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2020-12-21 09:07:25
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-26 09:09:28
+ * @LastEditTime: 2021-04-26 10:13:49
  */
 // 全局配置，只需要在核心文件匹配一次，之后会被注册为全局变量
 const CONFIG = require('./config')
@@ -61,6 +61,7 @@ async function createApp () {
   app.use('*', async function (req, res) {
     try {
       const url = req.originalUrl
+      console.log(url)
   
       let template, render, manifest = ''
   
@@ -87,6 +88,7 @@ async function createApp () {
         .replace(`<!--preload-links-->`, preloadLinks)
         .replace(`<!--app-html-->`, appHtml)
       
+      console.log(html)
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
     } 
     catch (e) {
