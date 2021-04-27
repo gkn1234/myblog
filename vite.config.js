@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 09:01:31
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-26 17:48:22
+ * @LastEditTime: 2021-04-27 14:56:30
  */
 const path = require('path')
 const CONFIG = require('./app.config')
@@ -36,7 +36,8 @@ export default defineConfig({
   )],
   resolve: {
     alias: [
-      { find: '@', replacement: path.join(__dirname, './src') },
+      { find: '$', replacement: path.join(__dirname, '.') },
+      { find: '@', replacement: path.join(__dirname, './src') }
     ]
   },
 })

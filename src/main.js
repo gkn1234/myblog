@@ -4,11 +4,13 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 09:01:31
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-26 16:24:02
+ * @LastEditTime: 2021-04-27 19:21:13
  */
 import App from './App.vue'
 import { createSSRApp } from 'vue'
 import { createRouter } from './router'
+
+import { createApiService } from '@/api/apiService'
 import { media } from './directives/index'
 import './styles/common.styl'
 
@@ -18,10 +20,13 @@ import './styles/common.styl'
 export function createApp() {
   const app = createSSRApp(App)
   const router = createRouter()
+  const apiService = createApiService()
+
   app.use(router)
+  app.use(apiService)
 
   // 指令注册
   app.directive('media', media)
 
-  return { app, router }
+  return { app, router, apiService }
 }

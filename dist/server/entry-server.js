@@ -4,7 +4,14 @@ exports[Symbol.toStringTag] = "Module";
 var vue = require("vue");
 var vueRouter = require("vue-router");
 var serverRenderer = require("@vue/server-renderer");
-var _sfc_main$3 = vue.defineComponent({
+var md5 = require("js-md5");
+var axios = require("axios");
+function _interopDefaultLegacy(e) {
+  return e && typeof e === "object" && "default" in e ? e : {default: e};
+}
+var md5__default = /* @__PURE__ */ _interopDefaultLegacy(md5);
+var axios__default = /* @__PURE__ */ _interopDefaultLegacy(axios);
+var _sfc_main$4 = vue.defineComponent({
   name: "BlogHead",
   props: {
     links: {
@@ -45,13 +52,13 @@ var _sfc_main$3 = vue.defineComponent({
     };
   }
 });
-var BlogHead_styl_vue_type_style_index_0_src_scoped_true_lang = '.blog-header[data-v-5a99373c] {\n  position: fixed;\n  width: 100%;\n  height: 60px;\n  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.3);\n  background-color: #fff;\n}\n.blog-header-logo img[data-v-5a99373c] {\n  height: 50px;\n}\n.blog-header-nav[data-v-5a99373c] {\n  height: 60px;\n  position: relative;\n}\n.blog-header-nav a[data-v-5a99373c] {\n  display: block;\n  line-height: 30px;\n  padding: 15px 20px;\n  color: #2f3542;\n}\n.blog-header-nav[data-v-5a99373c]::after {\n  content: "";\n  height: 3px;\n  background-color: #b3c131;\n  position: absolute;\n  bottom: 0px;\n}\n.blog-header-nav.active a[data-v-5a99373c] {\n  color: #b3c131;\n}\n.blog-header-nav.active[data-v-5a99373c]::after {\n  width: 100%;\n}\n.transparent.blog-header[data-v-5a99373c] {\n  background-color: rgba(0,0,0,0);\n  box-shadow: none;\n}\n.transparent .blog-header-nav a[data-v-5a99373c] {\n  color: #fff;\n}\n.transparent .blog-header-nav.active[data-v-5a99373c]::after {\n  background-color: #fff;\n}\n';
-const _withId = /* @__PURE__ */ vue.withScopeId("data-v-5a99373c");
-const _sfc_ssrRender$3 = /* @__PURE__ */ _withId((_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) => {
+var BlogHead_styl_vue_type_style_index_0_src_scoped_true_lang = '.blog-header[data-v-05286b89] {\n  position: fixed;\n  top: 0;\n  width: 100%;\n  height: 60px;\n  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.3);\n  background-color: #fff;\n}\n.blog-header-logo img[data-v-05286b89] {\n  height: 50px;\n}\n.blog-header-nav[data-v-05286b89] {\n  height: 60px;\n  position: relative;\n}\n.blog-header-nav a[data-v-05286b89] {\n  display: block;\n  line-height: 30px;\n  padding: 15px 20px;\n  color: #2f3542;\n}\n.blog-header-nav[data-v-05286b89]::after {\n  content: "";\n  height: 3px;\n  background-color: #b3c131;\n  position: absolute;\n  bottom: 0px;\n}\n.blog-header-nav.active a[data-v-05286b89] {\n  color: #b3c131;\n}\n.blog-header-nav.active[data-v-05286b89]::after {\n  width: 100%;\n}\n.transparent.blog-header[data-v-05286b89] {\n  background-color: rgba(0,0,0,0);\n  box-shadow: none;\n}\n.transparent .blog-header-nav a[data-v-05286b89] {\n  color: #fff;\n}\n.transparent .blog-header-nav.active[data-v-05286b89]::after {\n  background-color: #fff;\n}\n';
+const _withId = /* @__PURE__ */ vue.withScopeId("data-v-05286b89");
+const _sfc_ssrRender$4 = /* @__PURE__ */ _withId((_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) => {
   const _component_router_link = vue.resolveComponent("router-link");
   _push(`<header${serverRenderer.ssrRenderAttrs(vue.mergeProps({
     class: ["blog-header", {transparent: _ctx.isTransparent}]
-  }, _attrs))} data-v-5a99373c><div class="app-viewport flex flex-j-between flex-a-center" data-v-5a99373c>`);
+  }, _attrs))} data-v-05286b89><div class="app-viewport flex flex-j-between flex-a-center" data-v-05286b89>`);
   _push(serverRenderer.ssrRenderComponent(_component_router_link, {
     class: "blog-header-logo",
     to: "/"
@@ -59,7 +66,7 @@ const _sfc_ssrRender$3 = /* @__PURE__ */ _withId((_ctx, _push, _parent, _attrs, 
     default: _withId((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
         if (_ctx.isLogoImgShow) {
-          _push2(`<img${serverRenderer.ssrRenderAttr("src", _ctx.logoImgSrc)} data-v-5a99373c${_scopeId}>`);
+          _push2(`<img${serverRenderer.ssrRenderAttr("src", _ctx.logoImgSrc)} data-v-05286b89${_scopeId}>`);
         } else {
           _push2(`<!---->`);
         }
@@ -74,9 +81,9 @@ const _sfc_ssrRender$3 = /* @__PURE__ */ _withId((_ctx, _push, _parent, _attrs, 
     }),
     _: 1
   }, _parent));
-  _push(`<ul class="blog-header-nav-group flex flex-j-end margin-0" data-v-5a99373c><!--[-->`);
+  _push(`<ul class="blog-header-nav-group flex flex-j-end margin-0" data-v-05286b89><!--[-->`);
   serverRenderer.ssrRenderList(_ctx.links, (item, index) => {
-    _push(`<li class="${serverRenderer.ssrRenderClass([{active: index === _ctx.activeIndex}, "blog-header-nav"])}" data-v-5a99373c>`);
+    _push(`<li class="${serverRenderer.ssrRenderClass([{active: index === _ctx.activeIndex}, "blog-header-nav"])}" data-v-05286b89>`);
     _push(serverRenderer.ssrRenderComponent(_component_router_link, {
       to: item.to
     }, {
@@ -95,20 +102,20 @@ const _sfc_ssrRender$3 = /* @__PURE__ */ _withId((_ctx, _push, _parent, _attrs, 
   });
   _push(`<!--]--></ul></div></header>`);
 });
-_sfc_main$3.ssrRender = _sfc_ssrRender$3;
-_sfc_main$3.__scopeId = "data-v-5a99373c";
-const _sfc_setup$3 = _sfc_main$3.setup;
-_sfc_main$3.setup = (props, ctx) => {
+_sfc_main$4.ssrRender = _sfc_ssrRender$4;
+_sfc_main$4.__scopeId = "data-v-05286b89";
+const _sfc_setup$4 = _sfc_main$4.setup;
+_sfc_main$4.setup = (props, ctx) => {
   const ssrContext = vue.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = new Set())).add("F:/project/myblog/src/components/BlogHead/BlogHead.vue");
-  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
+  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
 var logoUrl = "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/img/logo.png";
 var logoTransparentUrl = "https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/img/logo-transparent.png";
-var _sfc_main$2 = vue.defineComponent({
+var _sfc_main$3 = vue.defineComponent({
   name: "Base",
   components: {
-    BlogHead: _sfc_main$3
+    BlogHead: _sfc_main$4
   },
   setup() {
     const route = vueRouter.useRoute();
@@ -136,7 +143,7 @@ var _sfc_main$2 = vue.defineComponent({
   }
 });
 var Base_vue_vue_type_style_index_0_lang = "";
-function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_BlogHead = vue.resolveComponent("BlogHead");
   const _component_router_view = vue.resolveComponent("router-view");
   _push(`<!--[-->`);
@@ -146,38 +153,49 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     logoSrc: _ctx.logoUrl,
     logoTransparentSrc: _ctx.logoTransparentUrl
   }, null, _parent));
-  _push(serverRenderer.ssrRenderComponent(_component_router_view, null, null, _parent));
+  serverRenderer.ssrRenderSuspense(_push, {
+    default: () => {
+      _push(serverRenderer.ssrRenderComponent(_component_router_view, null, null, _parent));
+    },
+    _: 1
+  });
   _push(`<!--]-->`);
+}
+_sfc_main$3.ssrRender = _sfc_ssrRender$3;
+const _sfc_setup$3 = _sfc_main$3.setup;
+_sfc_main$3.setup = (props, ctx) => {
+  const ssrContext = vue.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = new Set())).add("F:/project/myblog/src/pages/Base/Base.vue");
+  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
+};
+var App_vue_vue_type_style_index_0_lang = "\n";
+const _sfc_main$2 = {
+  components: {
+    Base: _sfc_main$3
+  }
+};
+function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_Base = vue.resolveComponent("Base");
+  _push(serverRenderer.ssrRenderComponent(_component_Base, _attrs, null, _parent));
 }
 _sfc_main$2.ssrRender = _sfc_ssrRender$2;
 const _sfc_setup$2 = _sfc_main$2.setup;
 _sfc_main$2.setup = (props, ctx) => {
   const ssrContext = vue.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = new Set())).add("F:/project/myblog/src/pages/Base/Base.vue");
-  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
-};
-var App_vue_vue_type_style_index_0_lang = "\n";
-const _sfc_main$1 = {
-  components: {
-    Base: _sfc_main$2
-  }
-};
-function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_Base = vue.resolveComponent("Base");
-  _push(serverRenderer.ssrRenderComponent(_component_Base, _attrs, null, _parent));
-}
-_sfc_main$1.ssrRender = _sfc_ssrRender$1;
-const _sfc_setup$1 = _sfc_main$1.setup;
-_sfc_main$1.setup = (props, ctx) => {
-  const ssrContext = vue.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = new Set())).add("F:/project/myblog/src/App.vue");
-  return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
+  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
 const routes = [
   {
     path: "/",
     component: () => Promise.resolve().then(function() {
       return Index;
+    })
+  },
+  {
+    path: "/blog",
+    component: () => Promise.resolve().then(function() {
+      return Blog;
     })
   }
 ];
@@ -186,6 +204,94 @@ function createRouter() {
     history: vueRouter.createMemoryHistory(),
     routes
   });
+}
+const API = {
+  test: ["/api/test", "get"]
+};
+const http = axios__default["default"].create({
+  headers: {
+    get: {
+      "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+    },
+    post: {
+      "Content-Type": "application/json;charset=utf-8"
+    }
+  },
+  withCredentials: true,
+  timeout: 1e4,
+  validateStatus() {
+    return true;
+  }
+});
+const HTTP_STATUS = {
+  400: "\u8BF7\u6C42\u9519\u8BEF(400)",
+  401: "\u672A\u6388\u6743\uFF0C\u8BF7\u91CD\u65B0\u767B\u5F55(401)",
+  403: "\u62D2\u7EDD\u8BBF\u95EE(403)",
+  404: "\u8BF7\u6C42\u51FA\u9519(404)",
+  408: "\u8BF7\u6C42\u8D85\u65F6(408)",
+  500: "\u670D\u52A1\u5668\u9519\u8BEF(500)",
+  501: "\u670D\u52A1\u672A\u5B9E\u73B0(501)",
+  502: "\u7F51\u7EDC\u9519\u8BEF(502)",
+  503: "\u670D\u52A1\u4E0D\u53EF\u7528(503)",
+  504: "\u7F51\u7EDC\u8D85\u65F6(504)",
+  505: "HTTP\u7248\u672C\u4E0D\u53D7\u652F\u6301(505)"
+};
+function showStatus(status) {
+  let message = HTTP_STATUS[status];
+  if (!message) {
+    message = `\u8FDE\u63A5\u51FA\u9519(${status})!`;
+  }
+  return message;
+}
+http.interceptors.request.use((config) => {
+  return config;
+}, (error) => {
+  error.data = {};
+  error.data.msg = "\u670D\u52A1\u5668\u5F02\u5E38\uFF0C\u8BF7\u8054\u7CFB\u7BA1\u7406\u5458\uFF01";
+  return Promise.resolve(error);
+});
+http.interceptors.response.use((response) => {
+  const status = response.status;
+  let msg = "";
+  if (status < 200 || status >= 300) {
+    msg = showStatus(status);
+    if (typeof response.data === "string") {
+      response.data = {msg};
+    } else {
+      response.data.msg = msg;
+    }
+  }
+  return response;
+}, (error) => {
+  error.data = {};
+  error.data.msg = "\u8BF7\u6C42\u8D85\u65F6\u6216\u670D\u52A1\u5668\u5F02\u5E38\uFF0C\u8BF7\u68C0\u67E5\u7F51\u7EDC\u6216\u8054\u7CFB\u7BA1\u7406\u5458\uFF01";
+  return Promise.resolve(error);
+});
+function createApiService() {
+  const service = {
+    asyncData: {},
+    async request(apiName, params = {}) {
+      if (!API[apiName]) {
+        throw new Error("Invalid API name!");
+      }
+      const name = apiName;
+      const requestId = md5__default["default"](name + JSON.stringify(params));
+      {
+        if (!INTERFACES || !INTERFACES[name]) {
+          throw new Error("Can not find property interfaces");
+        }
+        const intf = INTERFACES[name];
+        const res = await intf(params);
+        service.asyncData[requestId] = res;
+        return res;
+      }
+    },
+    install(app, options) {
+      app.provide("$apiService", service);
+      app.provide("$http", service.request);
+    }
+  };
+  return service;
 }
 const mqlMap = new Map();
 const media = {
@@ -1591,20 +1697,26 @@ body {
 }
 `;
 function createApp() {
-  const app = vue.createSSRApp(_sfc_main$1);
+  const app = vue.createSSRApp(_sfc_main$2);
   const router = createRouter();
+  const apiService = createApiService();
   app.use(router);
+  app.use(apiService);
   app.directive("media", media);
-  return {app, router};
+  return {app, router, apiService};
 }
 async function render(url, manifest) {
-  const {app, router} = createApp();
+  const {app, router, apiService} = createApp();
   router.push(url);
   await router.isReady();
+  console.log("setup");
   const ctx = {};
-  const html = await serverRenderer.renderToString(app, ctx);
+  let html = await serverRenderer.renderToString(app, ctx);
+  console.log("finish");
+  const asyncData = apiService.asyncData;
+  console.log(asyncData);
   const preloadLinks = renderPreloadLinks(ctx.modules, manifest);
-  return [html, preloadLinks];
+  return [html, preloadLinks, asyncData];
 }
 function renderPreloadLinks(modules, manifest) {
   let links = "";
@@ -1631,7 +1743,7 @@ function renderPreloadLink(file) {
     return "";
   }
 }
-var _sfc_main = vue.defineComponent({
+var _sfc_main$1 = vue.defineComponent({
   name: "Index",
   setup(props, {emit}) {
     vue.onMounted(() => {
@@ -1644,17 +1756,57 @@ var _sfc_main = vue.defineComponent({
   }
 });
 var Index_styl_vue_type_style_index_0_src_lang = '.index-main {\n  width: 100%;\n  height: 100%;\n}\n.index-banner {\n  width: 100%;\n  height: 640px;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center bottom;\n  background-image: url("https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/img/logo.png");\n  background-attachment: fixed;\n}\n';
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<main${serverRenderer.ssrRenderAttrs(vue.mergeProps({class: "index-main"}, _attrs))}><div class="index-banner"></div></main>`);
+}
+_sfc_main$1.ssrRender = _sfc_ssrRender$1;
+const _sfc_setup$1 = _sfc_main$1.setup;
+_sfc_main$1.setup = (props, ctx) => {
+  const ssrContext = vue.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = new Set())).add("F:/project/myblog/src/pages/Index/Index.vue");
+  return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
+};
+var Index = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  default: _sfc_main$1
+});
+var _sfc_main = vue.defineComponent({
+  name: "Blog",
+  async setup() {
+    let a = vue.reactive([]);
+    console.log("Blog");
+    const $http = vue.inject("$http");
+    const res = await $http("test");
+    console.log(res);
+    a.push(res.a);
+    function m() {
+      console.log(11111);
+    }
+    return {
+      a,
+      m
+    };
+  },
+  mounted() {
+    console.log("mounted");
+  }
+});
+function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({style: {"padding-top": "100px"}}, _attrs))}>Welcome! <!--[-->`);
+  serverRenderer.ssrRenderList(_ctx.a, (item, index) => {
+    _push(`<div>${serverRenderer.ssrInterpolate(item)}</div>`);
+  });
+  _push(`<!--]--></div>`);
 }
 _sfc_main.ssrRender = _sfc_ssrRender;
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = vue.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = new Set())).add("F:/project/myblog/src/pages/Index/Index.vue");
+  (ssrContext.modules || (ssrContext.modules = new Set())).add("F:/project/myblog/src/pages/Blog/Blog.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-var Index = /* @__PURE__ */ Object.freeze({
+var Blog = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   default: _sfc_main

@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2020-12-21 09:07:25
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-26 18:47:42
+ * @LastEditTime: 2021-04-27 16:45:17
  */
 // 全局配置，只需要在核心文件匹配一次，之后注册为全局变量
 const CONFIG = require('../app.config')
@@ -47,9 +47,10 @@ app.slsInitialize = async () => {
     }))
   }
 
-  // API路由处理
+  // API处理
   const useApi = require('./api/index')
   useApi(app)
+
 
   // SSR路由处理
   app.use('*', async function (req, res) {
@@ -74,12 +75,13 @@ app.slsInitialize = async () => {
       }
   
       // 渲染出HTML
-      const [appHtml, preloadLinks] = await render(url, manifest)
+      const [appHtml, preloadLinks, asyncData] = await render(url, manifest)
   
       // 注入应用渲染的 HTML 到模板中。
       const html = template
         .replace(`<!--preload-links-->`, preloadLinks)
         .replace(`<!--app-html-->`, appHtml)
+        .replace(`'<async-data>'`, JSON.stringify(asyncData))
       
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
     } 

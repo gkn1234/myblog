@@ -4,25 +4,46 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-24 18:02:31
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-26 19:14:57
+ * @LastEditTime: 2021-04-27 19:27:25
  */
-import axios from 'axios'
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, reactive, inject, onMounted } from 'vue'
 
 export default defineComponent({
   name: 'Blog',
-  setup () {
+  async setup () {
     let a = reactive([])
     console.log('Blog')
-    axios.get('/api/test').then((res) => {
+
+    const $http = inject('$http')
+    const res = await $http('test')
+
+    console.log(res)
+    a.push(res.a)
+
+    /*new ApiRequest('test').request().then((res) => {
       console.log(res)
       a.push(1)
-    }).catch((e) => {
-      console.log(e)
     })
+    console.log('Blog')*/
+    /*onMounted(() => {
+      console.log('mounted1')
+    })*/
+
+    /*const res = await new ApiRequest('test').request()
+
+    console.log(res)
+    a.push(res.a)
+    */
+
+    function m () {
+      console.log(11111)
+    }
 
     return {
-      a
+      a, m
     }
+  },
+  mounted () {
+    console.log('mounted')
   }
 })
