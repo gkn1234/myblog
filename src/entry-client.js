@@ -12,6 +12,5 @@ const { app, router } = createApp()
 
 // wait until router is ready before mounting to ensure hydration match
 router.isReady().then(() => {
-  console.log(app)
   app.mount('#app')
 })

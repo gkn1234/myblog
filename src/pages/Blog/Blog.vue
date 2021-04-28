@@ -4,12 +4,19 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-24 18:02:26
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-27 18:28:50
+ * @LastEditTime: 2021-04-28 18:34:59
 -->
 <template>
-  <div style="padding-top: 100px;">Welcome!
-    <div v-for="(item, index) in a" :key="index">{{ item }}</div>
-  </div>
+  <main class="blog app-viewport">
+    <div class="blog-list flex-g-1"></div>
+    <aside class="blog-aside">
+      <Sticky top="60">
+        <div style="background-color:red; width: 100%;">HL</div>
+        <div></div>
+      </Sticky>
+    </aside>
+  </main>
 </template>
 
+<style lang="stylus" src="./Blog.styl" scoped></style>
 <script src="./Blog.js"></script>

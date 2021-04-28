@@ -1,12 +1,45 @@
+@import '../../styles/var.styl'
+
 .index-main
   width: 100%
   height: 100%
 
 .index-banner
-  width: 100%
-  height: 640px
-  background-size: cover
-  background-repeat: no-repeat
-  background-position: center bottom
-  background-image: url('/img/logo.png')
-  background-attachment: fixed
+  display: flex
+  flex-direction column
+  justify-content: center
+  align-items: center
+  text-align: center
+  position: relative
+
+  // 标题文字样式
+  .index-banner-title
+    width: 100%
+    max-width: $viewport-width
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+
+    @media screen and (max-width:720px)
+      flex-direction: column
+      align-items: center
+
+    img
+      width: 40%
+      margin: 10px 20px
+
+      @media screen and (max-width:720px)
+        width: 70%
+  
+  .index-banner-btn-list
+    margin-top: 50px
+
+// 常规内容
+.index-content
+  padding: 80px
+
+.index-build-tools
+  background-color: $white
+
+.index-self-intro
+  background-color: rgba(0, 0, 0, 0.5)

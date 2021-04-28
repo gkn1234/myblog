@@ -25,7 +25,7 @@ inputs:
   functionConf:
     eip: true
     timeout: 10
-    memorySize: 3072
+    memorySize: 128
     environment:
       variables:
         NODE_ENV: production
