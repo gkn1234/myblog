@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-24 18:02:26
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-28 18:34:59
+ * @LastEditTime: 2021-04-29 10:42:21
 -->
 <template>
   <main class="blog app-viewport">
@@ -12,7 +12,6 @@
     <aside class="blog-aside">
       <Sticky top="60">
         <div style="background-color:red; width: 100%;">HL</div>
-        <div></div>
       </Sticky>
     </aside>
   </main>

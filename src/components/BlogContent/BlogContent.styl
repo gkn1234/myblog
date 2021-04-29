@@ -1,0 +1,66 @@
+@import '../../styles/var.styl'
+
+.blog-content-title-img
+  background-attachment: scroll
+
+.blog-content-title-wrapper
+  background-color: rgba(0, 0, 0, 0.3)
+  backdrop-filter: blur(10px)
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  color $word-reverse-color
+  padding-top: $header-height
+
+  .blog-content-title
+    font-size: 36px
+    color $word-reverse-color
+  
+  .blog-content-tags
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+    font-size: 12px
+    margin-top: 10px
+    
+    span
+      margin: 0 10px
+  
+  .blog-content-info
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+    font-size: 14px
+
+    span
+      margin: 0 20px
+
+.blog-content-main-wrapper
+  display: flex
+  background-color: $card-color
+  margin-top: 20px
+  height: 2000px
+
+.blog-content-topic-wrapper
+  width: 250px
+  position: relative
+
+  &::after
+    content: ''
+    position: absolute
+    height: 100%
+    right: 0
+    top: 0
+    width: 1px
+    transform: scaleX(0.5)
+    background-color: $border-color
+  
+  .blog-content-topic
+    height: 'calc(100vh - %s)' % $header-height
+    padding: 20px 20px 20px 0
+    width: 100%
+
+    
