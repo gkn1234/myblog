@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-26 16:08:06
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-26 16:15:16
+ * @LastEditTime: 2021-04-29 18:29:27
  */
 const path = require('path')
 
@@ -12,10 +12,6 @@ const path = require('path')
 const rootPath = __dirname
 
 const config = {
-  // 提供一个相对于根目录，快速定位到其他目录的方法
-  des (p) {
-    return path.join(rootPath, p)
-  },
   // 提供一个注册为全局变量的方法
   mountGlo () { global.CONFIG = config },
 
@@ -25,6 +21,10 @@ const config = {
   serverPath: path.join(rootPath, 'server'),
   // 应用目录
   srcPath: path.join(rootPath, 'src'),
+  // 提供一个相对于根目录，快速定位到其他目录的方法
+  des (p) {
+    return path.join(rootPath, p)
+  },
 
   // 是否为生产环境
   isProd: process.env.NODE_ENV === 'production',

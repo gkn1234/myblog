@@ -4,9 +4,9 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-28 19:46:54
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-29 10:37:01
+ * @LastEditTime: 2021-04-30 11:52:25
  */
-import { defineComponent } from 'vue'
+import { defineComponent, inject, onMounted } from 'vue'
 
 import IndexSection from '../IndexSection/IndexSection.vue'
 import Sticky from '../Sticky/Sticky.vue'
@@ -19,9 +19,20 @@ export default defineComponent({
     IndexSection,
     Sticky
   },
-  setup () {
+  async setup () {
+    onMounted(() => {
+      console.log('content moun')
+    })
+    const $http = inject('$http')
+    const $md = inject('$md')
+    const content = await $http('blogContent')
+
+    console.log(content)
+
+    const md = $md(content.md)
+
     return {
-      bannerUrl1
+      bannerUrl1, md
     }
   }
 })

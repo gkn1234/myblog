@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-28 19:46:44
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-29 11:09:39
+ * @LastEditTime: 2021-04-30 11:48:48
 -->
 <template>
   <main class="blog-content">
@@ -35,7 +35,7 @@
         </Sticky>
       </aside>
       
-      <section class="flex-g-1"></section>
+      <article class="blog-content-main flex-g-1" v-html="md"></article>
     </section>
   </main>
 </template>

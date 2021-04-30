@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-28 17:22:11
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-29 10:43:48
+ * @LastEditTime: 2021-04-30 11:53:10
  */
 import { defineComponent, onMounted, onBeforeUnmount, ref, reactive } from 'vue'
 
@@ -26,6 +26,7 @@ export default defineComponent({
     /** @section 生命周期，绑定时触发，解绑时取消触发 */
     onMounted(() => {
       window.addEventListener('scroll', stickyCheck)
+      console.log('sticky moun')
       stickyCheck()
     })
     onBeforeUnmount(() => {
@@ -46,6 +47,7 @@ export default defineComponent({
       const isSticyTrigger = (isStickyBelow && !isSticky) || (!isStickyBelow && isSticky)
       // 获取吸顶目标元素
       const stickyTarget = slots.default()[0].el
+      console.log(isSticyTrigger)
       if (isSticyTrigger && stickyTarget) {
         if (isStickyBelow) {
           // 吸顶时，占位元素需要设置宽高

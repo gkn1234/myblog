@@ -4,13 +4,15 @@
  * @Author: Guo Kainan
  * @Date: 2020-12-24 10:29:20
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-27 16:39:27
+ * @LastEditTime: 2021-04-30 10:33:33
  */
 const test = require('./test')
+const blogContent = require('./blogContent')
 
 // 注册接口
 const INTERFACES = {
-  test: test.main
+  test: test.main,
+  blogContent: blogContent.main
 }
 
 
@@ -20,4 +22,5 @@ module.exports = function (app) {
 
   // 注册路由
   app.use('/api/test', test.router)
+  app.use('/api/blogContent', blogContent.router)
 }

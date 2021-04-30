@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 09:08:24
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-28 09:20:00
+ * @LastEditTime: 2021-04-30 12:00:24
  */
 import { createApp } from './main'
 import { renderToString } from '@vue/server-renderer'

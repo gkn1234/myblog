@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-27 11:23:43
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-27 19:29:59
+ * @LastEditTime: 2021-04-30 11:05:01
  */
 import md5 from 'js-md5'
 import { API } from './api'
@@ -42,7 +42,7 @@ export function createApiService () {
       }
   
       // 前端接管服务器完成渲染的情况
-      if (window && window.__INITIAL_STATE__ && window.__INITIAL_STATE__[requestId]) {
+      if (window && window.__INITIAL_STATE__ && typeof window.__INITIAL_STATE__ === 'object' && window.__INITIAL_STATE__[requestId]) {
         // 如果后端已经完成请求且渲染到位，则前端接管页面后，没必要重复，直接同步即可，
         // 但是只有在接管服务端渲染后可以同步一次，以后还需要重新获取数据
         const res = window.__INITIAL_STATE__[requestId]

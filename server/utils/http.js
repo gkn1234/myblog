@@ -2,14 +2,14 @@
  * @Descripttion: 
  * @version: 
  * @Author: Guo Kainan
- * @Date: 2021-04-27 11:46:17
+ * @Date: 2021-04-30 10:14:55
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-30 10:48:04
+ * @LastEditTime: 2021-04-30 10:47:54
  */
-import axios from 'axios'
+const axios = require('axios')
 
 // 创建定制的axios实例
-export const http = axios.create({
+const http = axios.create({
   headers: {
     get: {
       'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
@@ -34,7 +34,7 @@ export const http = axios.create({
   validateStatus () { return true }
 })
 
-export const HTTP_STATUS = {
+const HTTP_STATUS = {
   400: '请求错误(400)',
   401: '未授权，请重新登录(401)',
   403: '拒绝访问(403)',
@@ -100,3 +100,8 @@ http.interceptors.response.use((response) => {
   }
   return Promise.resolve(error)
 })
+
+module.exports = {
+  http,
+  HTTP_STATUS
+}

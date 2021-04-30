@@ -4,13 +4,14 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 09:01:31
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-27 19:21:13
+ * @LastEditTime: 2021-04-30 12:00:07
  */
 import App from './App.vue'
 import { createSSRApp } from 'vue'
 import { createRouter } from './router'
 
 import { createApiService } from '@/api/apiService'
+import { createMarked } from '@/plugins/index'
 import { media } from './directives/index'
 import './styles/common.styl'
 
@@ -24,6 +25,7 @@ export function createApp() {
 
   app.use(router)
   app.use(apiService)
+  app.use(createMarked())
 
   // 指令注册
   app.directive('media', media)
