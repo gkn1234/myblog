@@ -4,16 +4,17 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-24 18:02:26
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-29 10:42:21
+ * @LastEditTime: 2021-05-02 16:28:07
 -->
 <template>
   <main class="blog app-viewport">
     <div class="blog-list flex-g-1"></div>
     <aside class="blog-aside">
-      <Sticky top="60">
-        <div style="background-color:red; width: 100%;">HL</div>
+      <Sticky v-if="trigger" top="60">
+        <div style="background-color:red;" :style="s">HL</div>
       </Sticky>
     </aside>
+    <button style="position: fixed;bottom: 0;width: 100px;height: 100px;" @click="h">aaaaaa</button>
   </main>
 </template>
 

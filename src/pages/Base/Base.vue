@@ -4,12 +4,12 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 11:35:47
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-28 17:07:17
+ * @LastEditTime: 2021-05-02 11:42:45
 -->
 <template>
   <BlogHead :links="links" :activeIndex="activeIndex" 
     :logoSrc="logoUrl" :logoTransparentSrc="logoTransparentUrl"></BlogHead>
-  <router-view @haha="handler"></router-view>
+  <router-view></router-view>
   
 </template>
 

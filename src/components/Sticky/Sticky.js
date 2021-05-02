@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-28 17:22:11
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-30 11:53:10
+ * @LastEditTime: 2021-05-02 16:31:59
  */
 import { defineComponent, onMounted, onBeforeUnmount, ref, reactive } from 'vue'
 
@@ -22,20 +22,18 @@ export default defineComponent({
     const stickyEl = ref(null)
     // 吸顶检测元素/占位元素的样式
     let stickyElStyle = reactive({})
+    let stickyContentStyle = reactive({})
 
     /** @section 生命周期，绑定时触发，解绑时取消触发 */
     onMounted(() => {
       window.addEventListener('scroll', stickyCheck)
-      console.log('sticky moun')
-      stickyCheck()
+      stickyCheck()   
     })
     onBeforeUnmount(() => {
       window.removeEventListener('scroll', stickyCheck)
     })
 
     /** @section 吸顶核心触发 */
-    // 暂存吸顶前的样式
-    let stickyStyleBefore = {}
     // 当前吸顶状态
     let isSticky = false
     // 检查吸顶
@@ -45,34 +43,27 @@ export default defineComponent({
       const isStickyBelow = rect.top <= props.top
       // 是否需要触发吸顶
       const isSticyTrigger = (isStickyBelow && !isSticky) || (!isStickyBelow && isSticky)
-      // 获取吸顶目标元素
-      const stickyTarget = slots.default()[0].el
-      console.log(isSticyTrigger)
-      if (isSticyTrigger && stickyTarget) {
+      if (isSticyTrigger) {
         if (isStickyBelow) {
           // 吸顶时，占位元素需要设置宽高
-          if (!stickyElStyle.hasOwnProperty('width') || !stickyElStyle.hasOwnProperty('height')) {
-            stickyElStyle.width = rect.width + 'px'
-            stickyElStyle.height = rect.height + 'px'
-          }
+          stickyElStyle.width = rect.width + 'px'
+          stickyElStyle.height = rect.height + 'px'
 
           // 调整吸顶内容的样式
-          stickyStyleBefore.position = stickyTarget.style.position
-          stickyStyleBefore.top = stickyTarget.style.top
-          stickyStyleBefore.width = stickyTarget.style.width
-          stickyStyleBefore.height = stickyTarget.style.height          
-
-          stickyTarget.style.position = 'fixed'
-          stickyTarget.style.top = props.top + 'px'
-          stickyTarget.style.width = stickyElStyle.width
-          stickyTarget.style.height = stickyElStyle.height          
+          stickyContentStyle.position = 'fixed'
+          stickyContentStyle.top = props.top + 'px'
+          stickyContentStyle.width = stickyElStyle.width
+          stickyContentStyle.height = stickyElStyle.height      
         }
         else {
           // 解除吸顶时，恢复吸顶前的样式
-          stickyTarget.style.position = stickyStyleBefore.position
-          stickyTarget.style.top = stickyStyleBefore.top
-          stickyTarget.style.width = stickyStyleBefore.width
-          stickyTarget.style.height = stickyStyleBefore.height
+          delete stickyElStyle.width
+          delete stickyElStyle.height
+
+          delete stickyContentStyle.position
+          delete stickyContentStyle.top
+          delete stickyContentStyle.width
+          delete stickyContentStyle.height
         }
         isSticky = isStickyBelow
         emit('sticky', isSticky)
@@ -80,7 +71,7 @@ export default defineComponent({
     }
 
     return {
-      stickyEl, stickyElStyle
+      stickyEl, stickyElStyle, stickyContentStyle
     }
   }
 })
