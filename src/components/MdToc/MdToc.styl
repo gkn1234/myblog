@@ -1,0 +1,47 @@
+@import '../../styles/var.styl'
+
+.md-toc
+  width: 300px
+  flex-shrink: 0
+  position: relative
+
+  &::after
+    content: ''
+    position: absolute
+    height: 100%
+    right: 0
+    top: 0
+    width: 1px
+    transform: scaleX(0.5)
+    background-color: $border-color
+  
+.md-toc-wrapper
+  padding: 20px
+  width: 100%
+
+  .title
+    font-weight: 700
+    font-size: 16px
+    text-align: center
+    padding-bottom: 5px
+
+  .toc
+    padding-left: 0
+
+.md-toc-link
+  padding: 5px 0
+
+  a
+    font-size: 14px
+    color: $word-color
+
+    &.selected
+      font-weight: 600
+      color: $theme-color
+
+    &:hover
+      color: $theme-color
+
+    &::before
+      content: '● '
+      color: $theme-color

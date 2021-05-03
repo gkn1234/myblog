@@ -4,12 +4,13 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-28 19:46:54
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-30 11:52:25
+ * @LastEditTime: 2021-05-03 10:20:04
  */
 import { defineComponent, inject, onMounted } from 'vue'
 
 import IndexSection from '../IndexSection/IndexSection.vue'
-import Sticky from '../Sticky/Sticky.vue'
+import MdToc from '../MdToc/MdToc.vue'
+import MdRender from '../MdRender/MdRender.vue'
 
 import bannerUrl1 from '/img/banner3.png'
 
@@ -17,7 +18,8 @@ export default defineComponent({
   name: 'BlogContent',
   components: {
     IndexSection,
-    Sticky
+    MdToc,
+    MdRender
   },
   async setup () {
     onMounted(() => {
@@ -29,10 +31,11 @@ export default defineComponent({
 
     console.log(content)
 
-    const md = $md(content.md)
+    const { md, toc } = content
 
     return {
-      bannerUrl1, md
+      bannerUrl1,
+      md, toc
     }
   }
 })

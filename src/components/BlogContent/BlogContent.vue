@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-28 19:46:44
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-30 11:48:48
+ * @LastEditTime: 2021-05-03 09:32:39
 -->
 <template>
   <main class="blog-content">
@@ -25,17 +25,8 @@
     </IndexSection>
 
     <section class="blog-content-main-wrapper app-viewport">
-      <aside class="blog-content-topic-wrapper">
-        <Sticky top="60">
-          <div class="blog-content-topic">
-            <div>1111</div>
-            <div>1111</div>
-            <div>1111</div><div>1111</div><div>1111</div>
-          </div>
-        </Sticky>
-      </aside>
-      
-      <article class="blog-content-main flex-g-1" v-html="md"></article>
+      <MdToc top="60" :toc="toc"></MdToc>
+      <MdRender :html="md"></MdRender>
     </section>
   </main>
 </template>

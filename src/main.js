@@ -4,15 +4,20 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 09:01:31
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-30 12:00:07
+ * @LastEditTime: 2021-05-03 12:05:18
  */
 import App from './App.vue'
 import { createSSRApp } from 'vue'
 import { createRouter } from './router'
 
 import { createApiService } from '@/api/apiService'
-import { createMarked } from '@/plugins/index'
 import { media } from './directives/index'
+
+// md样式
+import 'bytemd/dist/index.min.css'
+// 代码高亮样式
+
+// 常规样式
 import './styles/common.styl'
 
 // SSR requires a fresh app instance per request, therefore we export a function
@@ -25,7 +30,6 @@ export function createApp() {
 
   app.use(router)
   app.use(apiService)
-  app.use(createMarked())
 
   // 指令注册
   app.directive('media', media)
