@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-28 19:46:54
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-03 10:20:04
+ * @LastEditTime: 2021-05-04 15:32:12
  */
 import { defineComponent, inject, onMounted } from 'vue'
 
@@ -26,10 +26,9 @@ export default defineComponent({
       console.log('content moun')
     })
     const $http = inject('$http')
-    const $md = inject('$md')
     const content = await $http('blogContent')
 
-    console.log(content)
+    // console.log(content)
 
     const { md, toc } = content
 

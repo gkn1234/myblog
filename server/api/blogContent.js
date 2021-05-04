@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-29 11:04:53
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-03 09:00:18
+ * @LastEditTime: 2021-05-04 15:12:22
  */
 const express = require('express')
 const marked = require('../utils/marked')
@@ -24,10 +24,9 @@ async function main () {
   }
 
   const mdTxt = mdData.content
-  const mdHtml = marked(mdTxt)
   const tocData = toc(mdTxt).json
   return {
-    md: mdHtml,
+    md: mdTxt,
     toc: tocData
   }
 }

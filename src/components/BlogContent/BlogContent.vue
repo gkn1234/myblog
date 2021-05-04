@@ -26,7 +26,7 @@
 
     <section class="blog-content-main-wrapper app-viewport">
       <MdToc top="60" :toc="toc"></MdToc>
-      <MdRender :html="md"></MdRender>
+      <MdRender :md="md"></MdRender>
     </section>
   </main>
 </template>

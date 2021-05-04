@@ -18,7 +18,6 @@
     "@bytemd/plugin-gemoji": "^1.9.1",
     "@bytemd/plugin-gfm": "^1.9.1",
     "@bytemd/plugin-highlight-ssr": "^1.9.1",
-    "@bytemd/plugin-math": "^1.9.1",
     "@bytemd/plugin-math-ssr": "^1.9.1",
     "@bytemd/plugin-medium-zoom": "^1.9.1",
     "@bytemd/plugin-mermaid": "^1.9.1",
