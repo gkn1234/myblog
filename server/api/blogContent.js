@@ -4,10 +4,9 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-29 11:04:53
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-04 15:12:22
+ * @LastEditTime: 2021-05-05 10:55:30
  */
 const express = require('express')
-const marked = require('../utils/marked')
 const toc = require('markdown-toc')
 
 const { http } = require('../utils/http')

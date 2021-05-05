@@ -4,10 +4,10 @@
  * @Author: Guo Kainan
  * @Date: 2020-12-21 09:07:25
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-27 16:45:17
+ * @LastEditTime: 2021-05-05 10:55:15
  */
 // 全局配置，只需要在核心文件匹配一次，之后注册为全局变量
-const CONFIG = require('../app.config')
+const CONFIG = require('../server.config')
 CONFIG.mountGlo()
 
 const fs = require('fs')

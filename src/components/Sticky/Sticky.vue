@@ -4,11 +4,11 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-28 17:22:18
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-02 16:17:20
+ * @LastEditTime: 2021-05-05 11:58:26
 -->
 <template>
   <div class="sticky" ref="stickyEl" :style="stickyElStyle">
-    <div class="sticky-content" :style="stickyContentStyle">
+    <div class="sticky-content" :class="stickyClass" :style="stickyContentStyle">
       <slot></slot>
     </div>
   </div>

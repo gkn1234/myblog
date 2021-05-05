@@ -4,9 +4,9 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-03 09:08:24
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-03 10:09:29
+ * @LastEditTime: 2021-05-05 12:03:54
  */
-import { computed, defineComponent, ref } from 'vue'
+import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from 'vue'
 
 import Sticky from '../Sticky/Sticky.vue'
 
@@ -40,11 +40,10 @@ export default defineComponent({
       }
     })
 
-    // 记录选中目录
-    let selectedToc = ref('')
-    function selectHandler (item) {
-      selectedToc.value = item.content
-    }
+    // 选中目录
+    const { selectedToc, selectHandler } = useSelections()
+
+
 
     return {
       tocWrapperStyle,
@@ -52,3 +51,15 @@ export default defineComponent({
     }
   }
 })
+
+function useSelections () {
+  let selectedToc = ref('')
+  // 记录选中目录
+  function selectHandler (item) {
+    selectedToc.value = item.content
+  }
+
+  return {
+    selectedToc, selectHandler
+  }
+}

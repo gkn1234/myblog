@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-28 19:46:44
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-03 09:32:39
+ * @LastEditTime: 2021-05-05 12:07:45
 -->
 <template>
   <main class="blog-content">
@@ -26,8 +26,15 @@
 
     <section class="blog-content-main-wrapper app-viewport">
       <MdToc top="60" :toc="toc"></MdToc>
-      <MdRender :md="md"></MdRender>
+      <div class="blog-content-main">
+        <MdRender :md="md"></MdRender>
+        <section class="blog-content-post">
+          asasas
+        </section>        
+      </div>
     </section>
+
+
   </main>
 </template>
 

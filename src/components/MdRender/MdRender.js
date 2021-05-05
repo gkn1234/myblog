@@ -4,13 +4,12 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-03 09:07:24
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-04 16:05:12
+ * @LastEditTime: 2021-05-05 11:12:42
  */
 
 import { defineComponent, ref, onMounted, onBeforeUnmount } from "vue"
 import { getProcessor } from 'bytemd'
-import { plugins, handleTheme } from './plugins'
-
+import { mdPlugins, mdHandleTheme } from '@/plugins/index'
 
 export default defineComponent({
   name: 'MdRender',
@@ -21,14 +20,21 @@ export default defineComponent({
     }
   },
   setup (props) {
+    // md文档生成的HTML
     let mdFile = getProcessor({
-      plugins
+      plugins: mdPlugins
     }).processSync(props.md)
     // md主体dom对象
     const mdBody = ref(null)
 
-    // 样式注入
-    let styleHtml = handleTheme(mdFile)
+    // md文档样式注入
+    let styleDom
+    mdHandleTheme(mdFile).then((res) => {
+      styleDom = res
+    })
+    .catch((e) => {
+      console.error(e)
+    })
 
     onMounted(() => {
       // 为了与MdToc组件配合，需要为每一个标题加上id
@@ -37,13 +43,32 @@ export default defineComponent({
 
     onBeforeUnmount(() => {
       // 去除注入的样式
-      if (styleHtml) {
-        styleHtml.remove()
+      if (styleDom) {
+        styleDom.remove()
       }
     })
 
+    // md主体点击事件
+    function clickHandler (e) {
+      const $ = e.target
+      if ($.tagName !== 'A') {
+        return
+      }
+
+      const href = $.getAttribute('href')
+      if (!href || !href.startsWith('#')) {
+        return
+      }
+
+      const dest = mdBody.querySelector('#user-content-' + href.slice(1))
+      if (dest) {
+        dest.scrollIntoView()
+      }
+    }
+
     return {
-      mdFile, mdBody
+      mdFile, mdBody,
+      clickHandler
     }
   }
 })

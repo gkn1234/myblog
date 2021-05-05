@@ -4,18 +4,16 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 09:01:31
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-03 12:05:18
+ * @LastEditTime: 2021-05-05 10:56:19
  */
 import App from './App.vue'
 import { createSSRApp } from 'vue'
 import { createRouter } from './router'
 
-import { createApiService } from '@/api/apiService'
-import { media } from './directives/index'
-
-// md样式
-import 'bytemd/dist/index.min.css'
-// 代码高亮样式
+import {
+  mediaQuery,
+  createApiService
+} from '@/plugins/index'
 
 // 常规样式
 import './styles/common.styl'
@@ -29,10 +27,10 @@ export function createApp() {
   const apiService = createApiService()
 
   app.use(router)
+  // API服务
   app.use(apiService)
-
-  // 指令注册
-  app.directive('media', media)
+  // 媒体查询指令插件
+  app.use(mediaQuery())
 
   return { app, router, apiService }
 }
