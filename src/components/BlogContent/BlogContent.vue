@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-28 19:46:44
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-05 12:07:45
+ * @LastEditTime: 2021-05-06 11:32:18
 -->
 <template>
   <main class="blog-content">
@@ -28,9 +28,8 @@
       <MdToc top="60" :toc="toc"></MdToc>
       <div class="blog-content-main">
         <MdRender :md="md"></MdRender>
-        <section class="blog-content-post">
-          asasas
-        </section>        
+        <!-- 文章评论区 -->
+        <PostList></PostList>        
       </div>
     </section>
 

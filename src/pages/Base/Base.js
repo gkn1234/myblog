@@ -4,9 +4,9 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 16:25:49
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-26 17:51:57
+ * @LastEditTime: 2021-05-06 15:20:12
  */
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 import BlogHead from '@/components/BlogHead/BlogHead.vue'
@@ -40,9 +40,21 @@ export default defineComponent({
       console.log('触发')
     }
 
+    let isTransparent = ref(false)
+    let isHeaderShow = ref(true)
+    function headerNormal () {
+      isHeaderShow.value = true
+      isTransparent.value = false
+    }
+    function headerTransparent () {
+      isTransparent.value = true
+    }
+    
+
     return {
       links, activeIndex,
       logoUrl, logoTransparentUrl,
+      isTransparent, isHeaderShow, headerNormal, headerTransparent,
       handler
     }
   }

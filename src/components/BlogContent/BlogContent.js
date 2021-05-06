@@ -4,13 +4,14 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-28 19:46:54
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-04 15:32:12
+ * @LastEditTime: 2021-05-06 11:31:40
  */
 import { defineComponent, inject, onMounted } from 'vue'
 
 import IndexSection from '../IndexSection/IndexSection.vue'
 import MdToc from '../MdToc/MdToc.vue'
 import MdRender from '../MdRender/MdRender.vue'
+import PostList from '../PostList/PostList.vue'
 
 import bannerUrl1 from '/img/banner3.png'
 
@@ -19,7 +20,8 @@ export default defineComponent({
   components: {
     IndexSection,
     MdToc,
-    MdRender
+    MdRender,
+    PostList
   },
   async setup () {
     onMounted(() => {
