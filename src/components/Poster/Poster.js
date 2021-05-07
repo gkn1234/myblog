@@ -4,12 +4,25 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-06 11:04:14
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-06 14:15:34
+ * @LastEditTime: 2021-05-07 17:01:09
  */
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
+
+import Button from '../Button/Button.vue'
+
+export const DEFAULT_POSTER = '匿名'
 
 export default defineComponent({
   name: 'Poster',
+  components: {
+    Button
+  },
+  emits: [
+    // 输入框聚焦
+    'focus',
+    // 输入框失去焦点
+    'blur'
+  ],
   props: {
     placeholder: {
       type: String,
@@ -21,7 +34,33 @@ export default defineComponent({
       default: false
     }
   },
-  setup () {
+  setup (props, { emit }) {
+    const { postEditor, editorFocus, editorFocusHandler, editorBlurHandler } = useEditor(emit)
 
+    return {
+      postEditor, editorFocus, editorFocusHandler, editorBlurHandler
+    }
   }
 })
+
+// 输入框相关逻辑处理
+function useEditor (emit) {
+  const postEditor = ref(null)
+
+  // 手动聚焦输入框
+  function editorFocus () {
+    postEditor.value.focus()
+  }
+
+  // 输入框聚焦触发
+  function editorFocusHandler () {
+    emit('focus')
+  }
+
+  // 输入框失去焦点触发
+  function editorBlurHandler () {
+    emit('blur')
+  }
+
+  return { postEditor, editorFocus, editorFocusHandler, editorBlurHandler }
+}

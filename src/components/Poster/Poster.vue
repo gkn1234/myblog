@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-06 11:04:08
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-06 14:33:22
+ * @LastEditTime: 2021-05-07 17:00:00
 -->
 <template>
   <div class="poster" :class="{ 'reversed-background': reversedBg } ">
@@ -14,10 +14,13 @@
     </div>
 
     <div class="poster-content">
-      <div class="poster-input" contenteditable outline="none"
-        :placeholder="placeholder"></div>
+      <div class="poster-input" ref="postEditor"
+        contenteditable outline="none"
+        :placeholder="placeholder"
+        @focus="editorFocusHandler"
+        @blur="editorBlurHandler"></div>
       <div class="poster-tools">
-        <button>发送</button>
+        <Button type="primary" size="small">发送</Button>
       </div>
     </div>
   </div>

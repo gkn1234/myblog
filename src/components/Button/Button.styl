@@ -1,0 +1,162 @@
+@import '../../styles/var.styl'
+
+$default-line-height = 1.5
+
+$small-padding-hor = 10px
+$small-padding-ver = 3px
+$small-font-size = 12px
+$small-radius = 2px
+$small-height = $small-font-size * $default-line-height + 2 * $small-padding-ver + 2
+
+$medium-padding-hor = 15px
+$medium-padding-ver = 5px
+$medium-font-size = 14px
+$medium-radius = 3px
+$medium-height = $medium-font-size * $default-line-height + 2 * $medium-padding-ver + 2
+
+$large-padding-hor = 15px
+$large-padding-ver = 8px
+$large-font-size = 16px
+$large-radius = 4px
+$large-height = $large-font-size * $default-line-height + 2 * $large-padding-ver + 2
+
+round()
+  &.round
+    width: $medium-height
+    height: $medium-height
+    line-height: $medium-height
+    padding: 0
+    border-radius: 50%
+
+    &.small
+      height: $small-height
+      width: $small-height
+      line-height: $small-height
+    
+    &.large
+      height: $large-height
+      width: $large-height
+      line-height: $large-height
+
+radius()
+  &.radius
+    border-radius: ($medium-height / 2)
+  
+    &.small
+      border-radius: ($small-height / 2)
+
+    &.large
+      border-radius: ($large-height / 2)
+
+fill(col, lightCol, darkCol)
+  background-color: col
+  border-color: col
+
+  &:hover
+    background-color: lightCol
+    border-color: lightCol
+  
+  &:active
+    background-color: darkCol
+    border-color: darkCol
+  
+  &.outlined
+    color: col
+    background-color: transparent
+
+    &:hover
+      color: lightCol
+      border-color: lightCol
+      background-color: transparent
+
+    &:active
+      color: darkCol
+      border-color: darkCol
+      background-color: transparent
+
+.btn
+  color: $word-reverse-color
+  height: $medium-height
+  padding: $medium-padding-ver $medium-padding-hor
+  border-width: 1px
+  border-style: solid
+  border-radius: $medium-radius
+  line-height: $default-line-height
+  font-weight: 400
+  font-size: $medium-font-size
+  cursor: pointer
+  text-align: center
+  white-space: nowrap
+  user-select: none
+  display: inline-block
+  transition: all 0.3s ease
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1)
+  fill($theme-color, $theme-color-l, $theme-color-d)
+
+  &.dashed
+    border-style: dashed
+  
+  &.no-border
+    box-shadow: none
+    border-color: transparent !important
+
+  &.small
+    padding: $small-padding-ver $small-padding-hor
+    font-size: $small-font-size
+    border-radius: $small-radius
+    height: $small-height
+  
+  &.large
+    padding: $large-padding-ver $large-padding-hor
+    font-size: $large-font-size
+    border-radius: $large-radius
+    height: $large-height
+
+  &:hover
+    background-color: $theme-color-l
+    border-color: $theme-color-l
+  
+  &:active
+    background-color: $theme-color-d
+    border-color: $theme-color-d
+  
+  round()
+  radius()
+
+  &.success
+    fill($success-color, $success-color-l, $success-color-d)
+  
+  &.error
+    fill($error-color, $error-color-l, $error-color-d)
+
+  &.warn
+    fill($warn-color, $warn-color-l, $warn-color-d)
+  
+  // 黑白按钮
+  &.default
+    background-color: $word-reverse-color
+    color: $word-color
+    border-color: $word-color
+
+    &:hover
+      color: $theme-color
+      border-color: $theme-color
+  
+    &:active
+      color: $theme-color-d
+      border-color: $theme-color-d
+    
+    &.outlined
+      color: $word-reverse-color
+      border-color: $word-reverse-color
+      background-color: transparent
+
+      &:hover
+        color: $theme-color
+        border-color: $theme-color
+        background-color: transparent
+
+      &:active
+        color: $theme-color-d
+        border-color: $theme-color-d
+        background-color: transparent
