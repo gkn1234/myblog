@@ -6,18 +6,11 @@
   position: relative
   padding: 10px
 
-  &.reversed-color
+  &.reversed-background
     background-color: $background-color
-  
-  &::after
-    content: ''
-    background-color: $border-color
-    height: 1px
-    left: 0
-    right: 0
-    transform: scaleY(0.5)
-    bottom: 0
-    position: absolute
+
+  &:not(:last-child)
+    border-bottom: 1px solid $border-color
 
 .post-card-wrapper
   flex-grow: 1
@@ -44,6 +37,3 @@
 
 .post-card-content
   font-size: 14px
-
-.post-card-reply-poster
-  margin: 10px 0

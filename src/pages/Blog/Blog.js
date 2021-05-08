@@ -4,16 +4,17 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-24 18:02:31
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-04 14:47:57
+ * @LastEditTime: 2021-05-08 11:58:26
  */
 import { defineComponent, reactive, inject, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-import { Sticky } from '@/components/index'
+import { BlogList, Sticky } from '@/components/index'
 
 export default defineComponent({
   name: 'Blog',
   components: {
+    BlogList,
     Sticky
   },
   setup () {

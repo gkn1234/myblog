@@ -4,11 +4,11 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-24 18:02:26
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-02 16:28:07
+ * @LastEditTime: 2021-05-08 11:58:51
 -->
 <template>
   <main class="blog app-viewport">
-    <div class="blog-list flex-g-1"></div>
+    <BlogList class="flex-g-1"></BlogList>
     <aside class="blog-aside">
       <Sticky v-if="trigger" top="60">
         <div style="background-color:red;" :style="s">HL</div>
