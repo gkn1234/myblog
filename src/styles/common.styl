@@ -7,6 +7,14 @@ html
 body
   background-color: $background-color
 
+/* @section 支持阿里云iconfont */
+.icon
+  width: 1em
+  height: 1em
+  vertical-align: -0.15em
+  fill: currentColor
+  overflow: hidden
+
 /* @section 页面框架布局CSS */
 // 页面顶部区域
 .app-full
@@ -96,11 +104,16 @@ for i in 0 1 2 3 4
 
 /* @section 间距设置 */
 for direction in -top -bottom -left -right ''
-  for i in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+  for i in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
     .margin{direction}-{i}
-      margin{direction}: 1px * i !important
+      margin{direction}: 1px * i
     .padding{direction}-{i}
-      padding{direction}: 1px * i !important
+      padding{direction}: 1px * i
+
+/* @section 字体大小 */
+for i in 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32
+  .text-{i}
+    font-size: 1px * i
 
 /* @section 边框 */
 .app-round

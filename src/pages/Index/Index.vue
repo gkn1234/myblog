@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 11:37:03
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-07 11:05:07
+ * @LastEditTime: 2021-05-10 09:21:19
 -->
 <template>
   <!-- 博客首页 -->
@@ -18,7 +18,12 @@
           <img src="/img/title-2.png" />
         </div>
         <div class="index-banner-btn-list flex flex-wrap flex-j-center flex-a-center">
-          <Button type="default" shape="radius" outlined>Github</Button>
+          <Button type="default" shape="radius" outlined>
+            <svg class="icon text-16" aria-hidden="true">
+              <use xlink:href="#icongithub-fill"></use>
+            </svg>
+            Github
+          </Button>
           <Button>进入博客</Button>
         </div>
       </div>

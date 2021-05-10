@@ -29,6 +29,9 @@ inputs:
     environment:
       variables:
         NODE_ENV: production
+        SecretId: ${env:TENCENT_SECRET_ID}
+        SecretKey: ${env:TENCENT_SECRET_KEY}
+        MongoId: myblog-9g2dfls71ea0a34f
   layers:
     - name: myblog-layer
       version: 8
