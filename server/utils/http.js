@@ -4,13 +4,16 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-30 10:14:55
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-30 10:47:54
+ * @LastEditTime: 2021-05-11 11:03:52
  */
 const axios = require('axios')
 
 // 创建定制的axios实例
 const http = axios.create({
   headers: {
+    common: {
+      Referer: CONFIG.isProd ? CONFIG.domain : `localhost:${CONFIG.port}`
+    },
     get: {
       'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
     },
@@ -58,6 +61,7 @@ function showStatus (status) {
 
 // 请求拦截器
 http.interceptors.request.use((config) => {
+  console.log(config)
   return config
 }, 
 (error) => {

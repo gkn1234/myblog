@@ -31,7 +31,8 @@ inputs:
         NODE_ENV: production
         SecretId: ${env:TENCENT_SECRET_ID}
         SecretKey: ${env:TENCENT_SECRET_KEY}
-        MongoId: myblog-9g2dfls71ea0a34f
+        Token: ${env:TENCENT_TOKEN}
+        EnvId: myblog-0gvef4vz84623519
   layers:
     - name: myblog-layer
       version: 8

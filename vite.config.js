@@ -34,6 +34,9 @@ export default defineConfig({
       }
     }
   )],
+  server: {
+    port: CONFIG.port
+  },
   resolve: {
     alias: [
       { find: '$', replacement: path.join(__dirname, '.') },
