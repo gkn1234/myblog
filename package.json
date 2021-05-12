@@ -21,6 +21,7 @@
     "@bytemd/plugin-math-ssr": "^1.9.1",
     "@bytemd/plugin-medium-zoom": "^1.9.1",
     "@bytemd/plugin-mermaid": "^1.9.1",
+    "@cloudbase/js-sdk": "^1.5.0",
     "axios": "^0.21.1",
     "bytemd": "^1.9.1",
     "js-md5": "^0.7.3",

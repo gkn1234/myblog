@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-29 11:04:53
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-11 13:42:04
+ * @LastEditTime: 2021-05-12 10:18:37
  */
 const express = require('express')
 const toc = require('markdown-toc')
@@ -22,13 +22,6 @@ async function main () {
   if (mdData.errSignal) {
     return mdData
   }
-
-  const db = getDb()
-  const collection = db.collection('test')
-  console.log(collection)
-  const a = await collection.get()
-  console.log(a)
-
 
   const mdTxt = mdData.content
   const tocData = toc(mdTxt).json

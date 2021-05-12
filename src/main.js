@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 09:01:31
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-05 10:56:19
+ * @LastEditTime: 2021-05-12 13:06:11
  */
 import App from './App.vue'
 import { createSSRApp } from 'vue'
@@ -12,7 +12,7 @@ import { createRouter } from './router'
 
 import {
   mediaQuery,
-  createApiService
+  createApiService,
 } from '@/plugins/index'
 
 // 常规样式

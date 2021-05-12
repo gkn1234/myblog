@@ -4,13 +4,14 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-26 16:08:06
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-11 14:29:40
+ * @LastEditTime: 2021-05-12 10:24:14
  */
 const path = require('path')
 
 // __dirname总是指向配置脚本的绝对路径
 const rootPath = __dirname
 
+// 后端配置文件
 const config = {
   // 提供一个注册为全局变量的方法
   mountGlo () { global.CONFIG = config },
