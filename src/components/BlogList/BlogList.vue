@@ -4,11 +4,12 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-08 11:36:04
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-08 13:47:26
+ * @LastEditTime: 2021-05-14 20:34:50
 -->
 <template>
   <section class="blog-list">
-    <BlogCard :blogData="content"></BlogCard>    
+    <BlogCard :blogData="content"></BlogCard>
+    <BlogCard :blogData="content"></BlogCard>
   </section>
 </template>
 

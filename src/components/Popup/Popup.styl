@@ -1,0 +1,127 @@
+@import '../../styles/var.styl'
+
+$popup-background = rgba(0, 0, 0, 0.8)
+$popup-transparent = rgba(0, 0, 0, 0)
+
+.popup
+  background-color: $popup-background
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  z-index: $layer-popup
+
+.popup-card
+  background-color: $card-color
+  position: absolute
+
+  &.center
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+.popup-animation
+  animation-timing-function: ease
+  animation-fill-mode: both
+
+  &.top-in
+    animation-name: top-in
+  &.top-out
+    animation-name: top-out
+  &.bottom-in
+    animation-name: bottom-in
+  &.bottom-out
+    animation-name: bottom-out
+  &.left-in
+    animation-name: left-in
+  &.left-out
+    animation-name: left-out
+  &.right-in
+    animation-name: right-in
+  &.right-out
+    animation-name: right-out
+  &.center-in
+    animation-name: center-in
+  &.center-out
+    animation-name: center-out
+  &.fade-in
+    animation-name: fade-in
+  &.fade-out
+    animation-name: fade-out
+
+
+/* 上滑 */
+@keyframes top-in
+  0%
+    transform: translateY(-100%)
+  100%
+    transform: translateY(0)
+@keyframes top-out
+  0%
+    transform: translateY(0)
+  100%
+    transform: translateY(-100%)
+
+/* 下滑 */
+@keyframes bottom-in
+  0%
+    transform: translateY(100%)
+  100%
+    transform: translateY(0)
+@keyframes bottom-out
+  0%
+    transform: translateY(0)
+  100%
+    transform: translateY(100%)
+    
+/* 左滑 */
+@keyframes left-in
+  0%
+    transform: translateX(-100%)
+  100%
+    transform: translateX(0)
+@keyframes left-out
+  0%
+    transform: translateX(0)
+  100%
+    transform: translateX(-100%)
+
+/* 右滑 */
+@keyframes right-in
+  0%
+    transform: translateX(100%)
+  100%
+    transform: translateX(0)
+@keyframes right-out
+  0%
+    transform: translateX(0)
+  100%
+    transform: translateX(100%)
+
+@keyframes center-in
+  0%
+    opacity: 0
+    transform: translate(-50%, -50%) scale(0.75)
+  100%
+    opacity: 1
+    transform: translate(-50%, -50%) scale(1)
+@keyframes center-out
+  0%
+    opacity: 1
+    transform: translate(-50%, -50%) scale(1)
+  100%
+    opacity: 0
+    transform: translate(-50%, -50%) scale(0.75)
+
+/* 淡入淡出 */
+@keyframes fade-in
+  0%
+    background-color: $popup-transparent
+  100%
+    background-color: $popup-background
+@keyframes fade-out
+  0%
+    background-color: $popup-background
+  100%
+    background-color: $popup-transparent

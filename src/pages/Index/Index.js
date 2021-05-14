@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-24 11:12:18
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-12 14:51:53
+ * @LastEditTime: 2021-05-13 11:04:17
  */
 import { defineComponent, ref, onMounted, inject } from 'vue'
 import { transparentHeaderPage } from '@/mixins/index'
@@ -28,18 +28,22 @@ export default defineComponent({
 
     tcbReady(['auth', 'db'], ({ auth, db }) => {
       console.log(auth, db)
+      
       auth.anonymousAuthProvider().signIn().then(() => {
-        console.log(auth.hasLoginState())
-        console.log(auth.currentUser)
-        auth.currentUser.update({
-          nickName: 'Tony'
-        }).then(() => {
-
+        auth.getLoginState().then((state) => {
+          console.log(state)
+          state.user.update({
+            nickName: 'Tony'
+          }).then(() => {
+  
+          })
+          /*auth.currentUser.update({
+            nickName: 'Tony'
+          }).then(() => {
+  
+          })*/
         })
       })
-      /*auth.signInWithEmailAndPassword('guokainan1175@163.com', 'gkn66265241').then(() => {
-        console.log(auth.hasLoginState())
-      })*/
     })
 
     /*

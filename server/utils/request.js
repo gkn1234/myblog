@@ -108,6 +108,7 @@ const request = {
       throw error
     }
 
+    let port = error.port
     const bind = typeof port === 'string'
       ? 'Pipe ' + port
       : 'Port ' + port
