@@ -1,0 +1,59 @@
+@import '../../styles/var.styl'
+
+$notice-width = 350px
+$notice-padding = 20px
+
+.notices
+  position: fixed
+  top: $notice-padding
+  right: $notice-padding
+  width: $notice-width
+  z-index: $layer-top
+
+.notice-item
+  position: relative
+  transition: all 0.3s ease
+  background-color: $card-color
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)
+  border-radius: 2px
+  margin-bottom: $notice-padding
+  padding: $notice-padding
+  width: 100%
+  display: flex
+  align-items: flex-start
+
+.notice-item-main
+  flex-grow: 1
+  overflow: hidden
+  color: $word-color
+
+.notice-item-title
+  font-size: 16px
+  font-weight: 600
+  margin-bottom: 5px
+
+.notice-item-content
+  font-size: 14px
+
+// 列表过渡动画
+.notices-list-leave-active
+  position: absolute
+  transform-origin: 50% 0 0
+
+.notices-list-enter-from
+  opacity: 0
+  transform: translateX($notice-padding + $notice-width)
+
+.notices-list-leave-to
+  opacity: 0
+  transform: scaleY(0)
+
+// 列表icon颜色
+.notice-icon-primary
+  color: $theme-color
+.notice-icon-success
+  color: $success-color
+.notice-icon-warning
+  color: $warning-color
+.notice-icon-error
+  color: $error-color

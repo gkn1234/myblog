@@ -90,7 +90,7 @@ fill(col, lightCol, darkCol)
   user-select: none
   display: inline-block
   transition: all 0.3s ease
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1)
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05)
   fill($theme-color, $theme-color-l, $theme-color-d)
 
   &.dashed
@@ -129,8 +129,8 @@ fill(col, lightCol, darkCol)
   &.error
     fill($error-color, $error-color-l, $error-color-d)
 
-  &.warn
-    fill($warn-color, $warn-color-l, $warn-color-d)
+  &.warning
+    fill($warning-color, $warning-color-l, $warning-color-d)
   
   // 黑白按钮
   &.default

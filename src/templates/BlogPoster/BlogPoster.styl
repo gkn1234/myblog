@@ -1,0 +1,27 @@
+@import '../../styles/var.styl'
+
+.blog-poster
+  padding: 20px
+  background-color: $card-color
+  border-radius: 3px
+
+.blog-poster-line
+  display: flex
+  align-items: center
+
+  &:not(:last-child)
+    margin-bottom: 10px
+
+  label
+    flex-shrink: 0
+    width: 80px
+  
+  .blog-poster-content
+    flex-grow: 1
+
+.blog-poster-buttons
+  display: flex
+  justify-content: center
+
+  button
+    margin: 0 10px

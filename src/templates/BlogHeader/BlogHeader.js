@@ -4,13 +4,13 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 15:34:42
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-25 10:42:55
+ * @LastEditTime: 2021-05-18 14:49:55
  */
 import { defineComponent, computed, onMounted } from 'vue'
 
 // 博客顶部导航
 export default defineComponent({
-  name: 'BlogHead',
+  name: 'BlogHeader',
   props: {
     // 博客的子项目
     links: {

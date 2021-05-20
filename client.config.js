@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-12 10:24:00
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-14 09:26:46
+ * @LastEditTime: 2021-05-18 16:44:18
  */
 // 前端配置文件
 
@@ -13,4 +13,9 @@ export default {
   tcbEnvId: 'myblog-0gvef4vz84623519',
   // tcbEnvId: 'hello-cloudbase-4gkq77kf4a3c8e31',
   tcbRegion: 'ap-guangzhou',
+
+  // 存储路径
+  storage: {
+    blog: 'blog/'
+  }
 }

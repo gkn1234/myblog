@@ -33,5 +33,5 @@
   </header>
 </template>
 
-<style lang="stylus" src="./BlogHead.styl" scoped></style>
-<script src="./BlogHead.js"></script>
+<style lang="stylus" src="./BlogHeader.styl" scoped></style>
+<script src="./BlogHeader.js"></script>

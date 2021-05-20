@@ -4,22 +4,24 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-28 10:00:09
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-14 14:40:22
+ * @LastEditTime: 2021-05-20 16:04:07
  */
-import BlogContent from './BlogContent/BlogContent.vue'
-import BlogHead from './BlogHead/BlogHead.vue'
-import BlogList from './BlogList/BlogList.vue'
-import BlogPoster from './BlogPoster/BlogPoster.vue'
 import Button from './Button/Button.vue'
-import IndexSection from './IndexSection/IndexSection.vue'
+import Banner from './Banner/Banner.vue'
+import Input from './Input/Input.vue'
+import Popup from './Popup/Popup.vue'
 import Sticky from './Sticky/Sticky.vue'
+import FileInput from './FileInput/FileInput.vue'
+
+import { notice } from './Notice/useNotice'
 
 export {
-  BlogContent,
-  BlogHead,
-  BlogList,
-  BlogPoster,
   Button,
-  IndexSection,
-  Sticky
+  Banner,
+  Input,
+  Popup,
+  Sticky,
+  FileInput,
+
+  notice
 }

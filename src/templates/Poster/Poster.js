@@ -4,11 +4,11 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-06 11:04:14
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-08 10:15:35
+ * @LastEditTime: 2021-05-18 14:55:21
  */
 import { defineComponent, onBeforeUnmount, onMounted, ref } from 'vue'
 
-import Button from '../Button/Button.vue'
+import { Button } from '@/components/index'
 
 export const DEFAULT_POSTER = '匿名'
 

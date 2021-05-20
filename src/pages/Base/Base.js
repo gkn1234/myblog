@@ -4,12 +4,12 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 16:25:49
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-06 15:20:12
+ * @LastEditTime: 2021-05-18 14:55:55
  */
 import { defineComponent, computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
-import BlogHead from '@/components/BlogHead/BlogHead.vue'
+import { BlogHeader } from '@/templates/index'
 
 import logoUrl from '/img/logo.png'
 import logoTransparentUrl from '/img/logo-transparent.png'
@@ -17,7 +17,7 @@ import logoTransparentUrl from '/img/logo-transparent.png'
 export default defineComponent({
   name: 'Base',
   components: {
-    BlogHead
+    BlogHeader
   },
   setup () {
     const route = useRoute()

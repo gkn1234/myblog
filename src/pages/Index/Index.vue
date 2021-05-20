@@ -4,14 +4,14 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 11:37:03
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-10 09:21:19
+ * @LastEditTime: 2021-05-18 14:57:00
 -->
 <template>
   <!-- 博客首页 -->
   <main class="index-main">
 
     <!-- banner区域 -->
-    <IndexSection height="640px" :backgroundImg="bannerUrl1">
+    <Banner height="640px" :backgroundImg="bannerUrl1">
       <div class="index-banner app-full">
         <div class="index-banner-title">
           <img src="/img/title-1.png" />
@@ -27,17 +27,17 @@
           <Button>进入博客</Button>
         </div>
       </div>
-    </IndexSection>
+    </Banner>
 
     <!-- 博客使用的开发工具 -->
-    <IndexSection>
+    <Banner>
       <div class="index-content index-build-tools"></div>
-    </IndexSection>
+    </Banner>
 
     <!-- 自我介绍与博客的运行时间 -->
-    <IndexSection :backgroundImg="bannerUrl2">
+    <Banner :backgroundImg="bannerUrl2">
       <div class="index-content app-full index-self-intro"></div>
-    </IndexSection>
+    </Banner>
 
     <!-- 底部备案 -->
   </main>

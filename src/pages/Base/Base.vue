@@ -4,12 +4,12 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 11:35:47
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-06 15:20:34
+ * @LastEditTime: 2021-05-18 14:56:02
 -->
 <template>
-  <BlogHead :links="links" :activeIndex="activeIndex" 
+  <BlogHeader :links="links" :activeIndex="activeIndex" 
     :logoSrc="logoUrl" :logoTransparentSrc="logoTransparentUrl"
-    :isTransparent="isTransparent"></BlogHead>
+    :isTransparent="isTransparent"></BlogHeader>
   <router-view
     @header-normal="headerNormal"
     @header-transparent="headerTransparent"></router-view>

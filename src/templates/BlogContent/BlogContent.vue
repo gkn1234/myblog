@@ -8,7 +8,7 @@
 -->
 <template>
   <main class="blog-content">
-    <IndexSection class="blog-content-title-img" height="300px" :backgroundImg="bannerUrl1">
+    <Banner class="blog-content-title-img" height="300px" :backgroundImg="bannerUrl1">
       <div class="blog-content-title-wrapper app-full">
         <h1 class="blog-content-title">标题</h1>
         <div class="blog-content-info">
@@ -22,7 +22,7 @@
           <span>#Vue</span>
         </div>
       </div>
-    </IndexSection>
+    </Banner>
 
     <section class="blog-content-main-wrapper app-viewport">
       <MdToc top="60" :toc="toc"></MdToc>

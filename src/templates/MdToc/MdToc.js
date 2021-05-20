@@ -4,11 +4,11 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-03 09:08:24
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-05 12:03:54
+ * @LastEditTime: 2021-05-18 14:55:04
  */
 import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from 'vue'
 
-import Sticky from '../Sticky/Sticky.vue'
+import { Sticky } from '@/components/index'
 
 /**
  * 固定于页面左侧的话题栏。

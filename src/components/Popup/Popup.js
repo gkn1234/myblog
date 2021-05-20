@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-14 14:26:57
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-14 20:40:03
+ * @LastEditTime: 2021-05-20 16:31:53
  */
 import { defineComponent, watchEffect, ref, reactive, onBeforeUnmount, computed } from 'vue'
 
@@ -15,7 +15,7 @@ export default defineComponent({
     'update:isShow'
   ],
   props: {
-    // 
+    // 浮动窗口位置
     position: {
       default: 'center',
       type: String
@@ -28,6 +28,11 @@ export default defineComponent({
     animationTime: {
       default: 200,
       type: Number
+    },
+    // 弹框容器的样式类
+    popupClass: {
+      default: '',
+      type: String
     }
   },
   setup (props, { emit }) {
