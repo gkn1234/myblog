@@ -4,13 +4,27 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-27 11:23:43
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-04-30 11:05:01
+ * @LastEditTime: 2021-05-25 19:30:37
  */
 import md5 from 'js-md5'
 import { API } from './api'
 import { http } from './http'
 
 export { API }
+
+// 只在客户端环境下调用的请求
+export async function clientRequest (apiName, params = {}) {
+  if (import.meta.env.SSR) { return }
+
+  if (!API[apiName]) {
+    throw new Error('Invalid API name!')
+  }
+  const [path, method] = API[apiName]
+
+  const request = method === 'post' ? http.post : http.get
+  const res = await request(path, params)
+  return res.data
+}
 
 // SSR应用从后端获取数据的插件，能够妥善处理SSR场景下的数据同步
 export function createApiService () {
@@ -58,7 +72,6 @@ export function createApiService () {
     
     // 供Vue.use调用
     install (app, options) {
-      const apiService = createApiService()
       app.provide('$apiService', service)
       app.provide('$http', service.request)
     }

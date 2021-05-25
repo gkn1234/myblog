@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 09:01:31
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-12 13:06:11
+ * @LastEditTime: 2021-05-25 11:49:34
  */
 import App from './App.vue'
 import { createSSRApp } from 'vue'
@@ -14,6 +14,8 @@ import {
   mediaQuery,
   createApiService,
 } from '@/plugins/index'
+
+import { userStore } from '@/store/index'
 
 // 常规样式
 import './styles/common.styl'
@@ -31,6 +33,9 @@ export function createApp() {
   app.use(apiService)
   // 媒体查询指令插件
   app.use(mediaQuery())
+
+  // 用户数据
+  app.use(userStore())
 
   return { app, router, apiService }
 }

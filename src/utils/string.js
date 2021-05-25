@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-07 11:40:54
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-07 11:50:42
+ * @LastEditTime: 2021-05-25 11:37:11
  */
 
 // 字符串相关方法
@@ -47,4 +47,9 @@ export function uid (len = 16, radix = null, firstU = false) {
 	}
 
 	return uuid.join('')
+}
+
+export function isQQ (val) {
+  const pattern = /[1-9]([0-9]{5,11})/
+  return pattern.test(val)
 }

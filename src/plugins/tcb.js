@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-12 10:19:27
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-18 18:25:07
+ * @LastEditTime: 2021-05-21 17:23:11
  */
 // 获取tcb配置
 import config from '$/client.config'
@@ -12,9 +12,9 @@ import config from '$/client.config'
 // TCB实例
 let tcbInstance = null
 
-// 导出给组件使用的方法
+// 只有成功获取tcb模块，才执行回调，在组件setup中使用，可防止在SSR环境中意外执行
 export function tcbReady (modals = [], callback = () => {}) {
-  _tcbReady(modals).then((res) => {
+  tcbReadyAsync(modals).then((res) => {
     if (res && typeof res === 'object') {
       callback(res)
     }
@@ -22,7 +22,7 @@ export function tcbReady (modals = [], callback = () => {}) {
 }
 
 // 初始化TCB的执行函数
-async function _tcbReady(modals = []) {
+export async function tcbReadyAsync(modals = []) {
   // SSR环境下不会触发，返回null，主函数检测到null，会阻止回调执行，从而在服务端不执行此函数
   if (import.meta.env.SSR) { return null }
 

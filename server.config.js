@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-26 16:08:06
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-12 10:24:14
+ * @LastEditTime: 2021-05-22 14:13:01
  */
 const path = require('path')
 
@@ -14,7 +14,7 @@ const rootPath = __dirname
 // 后端配置文件
 const config = {
   // 提供一个注册为全局变量的方法
-  mountGlo () { global.CONFIG = config },
+  mountGlo () { globalThis.CONFIG = config },
 
   // 项目的根路径
   rootPath,

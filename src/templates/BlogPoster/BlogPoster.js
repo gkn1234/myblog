@@ -4,11 +4,18 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-14 14:38:35
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-20 18:08:52
+ * @LastEditTime: 2021-05-25 17:43:40
  */
 import { defineComponent, ref, reactive, computed, inject } from 'vue'
 
-import { Button, Input, Popup, FileInput, notice } from '@/components/index'
+import { 
+  Button, 
+  Input, 
+  FileInput,
+  Select, Option,
+  Popup, 
+  notice
+} from '@/components/index'
 
 import { tcbReady } from '@/plugins/tcb'
 import { uid } from '@/utils/index'
@@ -17,10 +24,11 @@ import config from '$/client.config'
 export default defineComponent({
   name: 'BlogPoster',
   components: {
-    Button,
-    Popup,
-    Input,
-    FileInput
+    Button, 
+    Input, 
+    FileInput,
+    Select, Option,
+    Popup
   },
   props: {
     /**
@@ -30,7 +38,7 @@ export default defineComponent({
     // 文章分类列表
     categories: {
       type: Array,
-      default: () => []
+      default: () => ['1', '2']
     }
   },
   setup () {

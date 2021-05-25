@@ -8,7 +8,7 @@
  */
 const express = require('express')
 const toc = require('markdown-toc')
-const { getDb } = require('../utils/tcb')
+const { db } = require('../utils/tcb')
 
 const { http } = require('../utils/http')
 

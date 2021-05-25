@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-14 14:38:21
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-20 18:17:25
+ * @LastEditTime: 2021-05-25 17:35:55
 -->
 <template>
   <Popup ref="popupWrapper">
@@ -24,11 +24,10 @@
 
       <div class="blog-poster-line">
         <label>文章分类</label>
-        <select class="blog-poster-content">
-          <option>a</option>
-          <option>b</option>
-          <option>c</option>
-        </select>
+        <Select>
+          <Option v-for="(item, index) in categories" :key="index"
+            :value="item"></Option>
+        </Select>
       </div>
 
       <div class="blog-poster-buttons">

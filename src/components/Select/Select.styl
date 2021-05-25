@@ -1,0 +1,50 @@
+@import '../../styles/var.styl'
+
+.select
+  display: flex
+  align-items: center
+  overflow: hidden
+  user-select: none
+  border: 1px solid $border-color
+  border-radius: 3px
+  padding: 3px 5px
+  min-height: 30px
+
+  &.active
+    border-color: $theme-color
+  
+.select-single
+.select-mutiple
+  flex-grow: 1
+
+.select-mutiple
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+
+  input
+    border: none
+    outline: none
+    padding: 0
+    flex-grow: 1
+
+.select-item
+  flex-shrink: 0
+  margin: 0 3px
+  cursor: pointer
+
+  &:hover
+    color: rgba(0, 0, 0, 0.45)
+
+.select-dropdown-wrapper
+  position: absolute
+  top: 0px
+  left: 0px
+  width: 100%
+  z-index: $layer-top
+
+.select-dropdown
+  position: absolute
+  background-color: $card-color
+  border-radius: 2px
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15)

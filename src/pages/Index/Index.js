@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-24 11:12:18
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-18 14:56:51
+ * @LastEditTime: 2021-05-25 11:17:28
  */
 import { defineComponent, ref, onMounted, inject } from 'vue'
 import { transparentHeaderPage } from '@/mixins/index'
@@ -26,45 +26,9 @@ export default defineComponent({
     // 使标题栏能够响应透明化
     transparentHeaderPage(emit)
 
-    tcbReady(['auth', 'db'], ({ auth, db }) => {
-      console.log(auth, db)
-      
-      auth.anonymousAuthProvider().signIn().then(() => {
-        auth.getLoginState().then((state) => {
-          console.log(state)
-          state.user.update({
-            nickName: 'Tony'
-          }).then(() => {
-  
-          })
-          /*auth.currentUser.update({
-            nickName: 'Tony'
-          }).then(() => {
-  
-          })*/
-        })
-      })
-    })
+    const $http = inject('$http')
 
-    /*
-    onMounted(() => {
-      const tcb = inject('$tcb')
-      tcb.auth.anonymousAuthProvider().signIn().then(() => {
-        console.log(tcb.auth.hasLoginState())
-        console.log(tcb)
-        tcb.db.collection('test').get().then((res) => {
-          console.log(res)
-        })
-        tcb.auth.currentUser.update({
-          nickName: 'Tony'
-        }).then(() => {
-          console.log(tcb.auth.currentUser)
-        })
-      })
-      //console.log(tcb)
-      //console.log(tcb.auth.hasLoginState())      
-    })
-    */
+    
 
     return {
       bannerUrl1, bannerUrl2

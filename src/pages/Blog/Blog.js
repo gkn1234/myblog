@@ -4,12 +4,12 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-24 18:02:31
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-20 18:02:12
+ * @LastEditTime: 2021-05-25 12:12:38
  */
-import { defineComponent, reactive, inject, onMounted, ref } from 'vue'
+import { defineComponent, reactive, inject, onMounted, ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 
-import { Sticky, notice } from '@/components/index'
+import { Button, Sticky, notice } from '@/components/index'
 import { BlogList, BlogPoster } from '@/templates/index'
 
 export default defineComponent({
@@ -17,7 +17,8 @@ export default defineComponent({
   components: {
     BlogList,
     BlogPoster,
-    Sticky
+    Sticky,
+    Button
   },
   setup () {
     let trigger = ref(true)
@@ -36,11 +37,6 @@ export default defineComponent({
       router.push('/blog/1')
     }
 
-    let isPosterShow = ref(false)
-
-    function postBlogHandler () {
-      isPosterShow.value = !isPosterShow.value
-    }
 
     function n () {
       notice({
@@ -51,9 +47,28 @@ export default defineComponent({
       })
     }
 
+    const { isPosterShow, isBlogPosterEnabled, postBlogHandler } = useBlogPoster()
+
     return {
       trigger, h, s, n,
-      postBlogHandler, isPosterShow
+      isPosterShow, isBlogPosterEnabled, postBlogHandler
     }
   },
 })
+
+// 发表文章相关逻辑
+function useBlogPoster () {
+  // 管理员限定功能
+  const user = inject('user')
+  const isBlogPosterEnabled = computed(() => {
+    return user.isAdmin()
+  })
+
+  // 按钮点击触发
+  let isPosterShow = ref(false)
+  function postBlogHandler () {
+    isPosterShow.value = !isPosterShow.value
+  }
+
+  return { isPosterShow, isBlogPosterEnabled, postBlogHandler }
+}

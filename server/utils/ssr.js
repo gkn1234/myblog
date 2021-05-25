@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-11 09:18:22
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-11 10:44:13
+ * @LastEditTime: 2021-05-23 15:30:25
  */
 const fs = require('fs')
 
@@ -53,6 +53,7 @@ function ssrDynamicRenderRouter (app, ssrViteDevServer) {
   app.use('*', async function (req, res) {
     try {
       const url = req.originalUrl
+      console.log(url)
   
       let template, render, manifest = ''
   
