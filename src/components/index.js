@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-28 10:00:09
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-25 17:43:28
+ * @LastEditTime: 2021-05-30 15:53:36
  */
 import Button from './Button/Button.vue'
 
@@ -15,7 +15,7 @@ import Input from './Input/Input.vue'
 import FileInput from './FileInput/FileInput.vue'
 
 import Select from './Select/Select.vue'
-import Option from './Select/Option.vue'
+import SelectOption from './Select/SelectOption.vue'
 
 import Popup from './Popup/Popup.vue'
 
@@ -28,7 +28,7 @@ export {
   Banner,
   Input,
   FileInput,
-  Select, Option,
+  Select, SelectOption,
   Popup,
   Sticky,
 

@@ -1,0 +1,21 @@
+@import '../../styles/var.styl'
+
+.select-option
+  user-select: none
+  padding: 3px 5px
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+  &:hover
+    background-color: $light-3
+  
+  &.selected
+    background-color: $light-2
+
+.select-icon
+  flex-shrink: 0
+  color: $theme-color
+
+  &.no-selected
+    visibility: hidden

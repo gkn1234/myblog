@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-14 14:38:21
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-25 17:35:55
+ * @LastEditTime: 2021-05-31 18:13:36
 -->
 <template>
   <Popup ref="popupWrapper">
@@ -24,9 +24,9 @@
 
       <div class="blog-poster-line">
         <label>文章分类</label>
-        <Select>
-          <Option v-for="(item, index) in categories" :key="index"
-            :value="item"></Option>
+        <Select multiple v-model:values="form.tags" style="width: 300px">
+          <SelectOption v-for="(item, index) in categories" :key="index"
+            :value="item"></SelectOption>
         </Select>
       </div>
 

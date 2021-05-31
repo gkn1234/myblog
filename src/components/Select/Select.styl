@@ -14,10 +14,10 @@
     border-color: $theme-color
   
 .select-single
-.select-mutiple
+.select-multiple
   flex-grow: 1
 
-.select-mutiple
+.select-multiple
   display: flex
   flex-wrap: wrap
   align-items: center
@@ -27,6 +27,18 @@
     outline: none
     padding: 0
     flex-grow: 1
+
+.select-multiple-item
+  margin-right: 3px
+  padding: 0 3px
+  background-color: $light-2
+  display: flex
+  align-items: center
+  
+  .select-multiple-item-close
+    cursor: pointer
+    margin-left: 3px
+    font-size: 12px
 
 .select-item
   flex-shrink: 0

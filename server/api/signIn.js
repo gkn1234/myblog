@@ -13,7 +13,7 @@ const router = express.Router()
 /**
  * @param {Object} user 用户对象信息
  */
-async function main (params) {
+async function main ({ nickname, qq, uid }) {
   const auth = getAuth()
   const ticket = auth.createTicket(params.uid)
   return ticket

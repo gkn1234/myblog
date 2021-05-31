@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-14 14:38:35
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-25 17:43:40
+ * @LastEditTime: 2021-05-31 17:12:41
  */
 import { defineComponent, ref, reactive, computed, inject } from 'vue'
 
@@ -12,7 +12,7 @@ import {
   Button, 
   Input, 
   FileInput,
-  Select, Option,
+  Select, SelectOption,
   Popup, 
   notice
 } from '@/components/index'
@@ -27,7 +27,7 @@ export default defineComponent({
     Button, 
     Input, 
     FileInput,
-    Select, Option,
+    Select, SelectOption,
     Popup
   },
   props: {
@@ -38,7 +38,7 @@ export default defineComponent({
     // 文章分类列表
     categories: {
       type: Array,
-      default: () => ['1', '2']
+      default: () => ['1', '2', {c: 1}]
     }
   },
   setup () {
@@ -58,7 +58,7 @@ function usePosterForm () {
     title: '',
     file: null,
     tags: [],
-    categories: []
+    categories: ''
   })
   // 文件名称
   let fileName = computed(() => {
