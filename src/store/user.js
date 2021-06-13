@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-21 16:16:44
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-25 12:09:49
+ * @LastEditTime: 2021-06-04 11:46:12
  */
 import { reactive } from 'vue'
 import config from '$/client.config'
@@ -16,17 +16,19 @@ import { isQQ } from '@/utils/index'
 const LOCAL_UID_KEY = 'localUserId'
 
 // 初始化的用户信息
-const defaultUserData = {
-  uid: '',
-  nickName: '',
-  email: '',
-  avatarUrl: ''
+export function userDefaultData () {
+  return {
+    uid: '',
+    nickName: '',
+    email: '',
+    avatarUrl: ''
+  }
 }
 
 class User {
   // 客户端用户信息
   data = reactive({
-    ...defaultUserData
+    ...userDefaultData()
   })
   // auth对象，可以获取TCB用户数据
   _auth = null
@@ -48,6 +50,11 @@ class User {
   // 是否登录
   isLogin () {
     return this._auth && this._auth.hasLoginState()
+  }
+
+  // 是否为正式用户
+  isFormal () {
+    return this.isLogin() && true
   }
 
   // 自动登录

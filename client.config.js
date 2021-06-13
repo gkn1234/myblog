@@ -4,11 +4,11 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-12 10:24:00
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-25 11:34:34
+ * @LastEditTime: 2021-06-06 17:14:20
  */
 // 前端配置文件
 
-export default {
+const config = {
   // 腾讯云相关，连接登录、数据库、存储
   tcbEnvId: 'myblog-0gvef4vz84623519',
   // tcbEnvId: 'hello-cloudbase-4gkq77kf4a3c8e31',
@@ -19,7 +19,12 @@ export default {
 
   // 存储路径
   storage: {
-    blog: 'blog/'
+    blogs: 'blogs/'
+  },
+
+  // 数据库集合名
+  dbCollections: {
+    blogs: 'blogs'
   },
 
   // 管理员标志
@@ -27,3 +32,5 @@ export default {
     return user.data.email === 'guokainan1175@163.com'
   }
 }
+
+export default config

@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2020-12-21 09:07:25
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-11 11:28:38
+ * @LastEditTime: 2021-06-13 18:01:05
  */
 // 全局配置，只需要在核心文件匹配一次，之后注册为全局变量
 const CONFIG = require('../server.config')
@@ -50,7 +50,7 @@ app.slsInitialize = async () => {
     */
   })
 
-  // 应用异常捕获,我承认我是菜比,先这么处理吧
+  // 应用异常捕获
   /*
   process.on('uncaughtException', (err) => {
     //打印出错误

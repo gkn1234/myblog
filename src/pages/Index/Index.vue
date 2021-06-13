@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 11:37:03
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-18 14:57:00
+ * @LastEditTime: 2021-06-13 18:02:25
 -->
 <template>
   <!-- 博客首页 -->
@@ -43,5 +43,26 @@
   </main>
 </template>
 
-<style lang="stylus" src="./Index.styl" scoped></style>
-<script src="./Index.js"></script>
+<script setup>
+
+import { defineEmit, ref, onMounted, inject } from 'vue'
+import { transparentHeaderPage } from '@/mixins/index'
+import { tcbReady } from '@/plugins/tcb'
+
+import { Banner, Button } from '@/components/index'
+
+import bannerUrl1 from '/img/banner.png'
+import bannerUrl2 from '/img/banner3.png'
+
+const emit = defineEmit([
+  'header-normal', 'header-transparent'
+])
+
+// 使标题栏能够响应透明化
+transparentHeaderPage(emit)
+
+</script>
+
+<style lang="stylus" scoped>
+@import './Index.styl'
+</style>

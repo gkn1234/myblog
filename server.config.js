@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-26 16:08:06
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-22 14:13:01
+ * @LastEditTime: 2021-06-04 12:03:32
  */
 const path = require('path')
 
@@ -45,7 +45,12 @@ const config = {
   tcbRegion: 'ap-guangzhou',
 
   // 存储桶COS目录
-  cosUrl: 'https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/'
+  cosUrl: 'https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/',
+
+  // 数据库集合名
+  dbCollections: {
+    blogs: 'blogs'
+  },
 }
 
 module.exports = config

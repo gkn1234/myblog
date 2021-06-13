@@ -4,10 +4,10 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-25 15:15:18
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-31 20:57:39
+ * @LastEditTime: 2021-06-01 18:32:57
 -->
 <template>
-  <div class="select-option" :class="{ selected: isSelected }" @click="optionClickHandler">
+  <div class="select-option" v-if="isShow" :class="{ selected: isSelected }" @click.stop="optionClickHandler">
     <div class="select-label">{{ label }}</div>
     <!-- 选中图标 -->
     <svg class="icon select-icon" aria-hidden="true" :class="{ 'no-selected': !isSelected }">
@@ -20,7 +20,7 @@
 
 <script setup>
 
-import { defineProps } from 'vue'
+import { defineProps, useContext } from 'vue'
 import { useOption } from './useOptions'
 
 const props = defineProps({
@@ -38,8 +38,10 @@ const props = defineProps({
   }
 })
 
-const optionHook = useOption(props)
-const { label, isSelected } = optionHook
+const { attrs } = useContext()
+
+const optionHook = useOption(props, attrs)
+const { label, isSelected, isShow } = optionHook
 
 // 点击选项触发
 function optionClickHandler () {

@@ -4,9 +4,9 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-31 11:56:21
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-31 21:06:44
+ * @LastEditTime: 2021-06-01 18:43:19
  */
-import { computed, inject, onBeforeUnmount } from 'vue'
+import { ref, computed, inject, onBeforeUnmount } from 'vue'
 
 // Select组件与子组件通信的key
 export const SELECT_OPTIONS_KEY = '___selectOptionHandler__'
@@ -16,7 +16,7 @@ export function getOptionLabel (option) {
   return option.label === '' ? String(option.value) : option.label
 }
 
-export function useOption (props) {
+export function useOption (props, attrs) {
   const handler = inject(SELECT_OPTIONS_KEY)
   if (!handler || typeof handler !== 'object') {
     throw new Error('Component SelectOption can only be used in Select\'s default slot!')
@@ -34,15 +34,22 @@ export function useOption (props) {
     multipleSelectHook,
     // 下拉框钩子
     dropdownHook,
+    // 过滤输入框的钩子
+    filterHook,
+    // 标签输入的钩子
+    tagsHook
   } = handler
 
-  console.log(handler)
+  // console.log(handler)
   // 创建组件时，注册Option到父组件Select
   optionsHook.add(props, hook)
   // 组件销毁时，父组件Select停止对Option的管理
   onBeforeUnmount(() => {
     optionsHook.remove(props)
   })
+
+  // 是否为标签
+  hook.isTag = !!attrs.isTag
 
   // 是否被选中
   hook.isSelected = computed(() => {
@@ -51,6 +58,9 @@ export function useOption (props) {
     }
     return singleSelectHook.value.value === props.value
   })
+
+  // 是否显示
+  hook.isShow = ref(true)
 
   // 标签文字
   hook.label = computed(() => {
@@ -62,6 +72,16 @@ export function useOption (props) {
     if (multiple) {
       // 多选模式
       multipleSelectHook.add(props.value)
+      if (attrs.isTag) {
+        // 当选项为标签时，标签换新
+        tagsHook.unshift()
+      }
+      // 输入框重置
+      filterHook.value.value = ''
+      // 重新集中输入框
+      filterHook.focus()
+      // 重新计算下拉框位置
+      dropdownHook.resize()
     }
     else {
       singleSelectHook.value.value = props.value
@@ -75,6 +95,16 @@ export function useOption (props) {
     if (multiple) {
       // 多选模式
       multipleSelectHook.remove(props.value)
+      if (attrs.isTag) {
+        // 当取消的选项为标签时，立即连同标签与选项一同删除
+        tagsHook.remove(props.value)
+      }
+      // 输入框重置
+      filterHook.value.value = ''
+      // 重新集中输入框
+      filterHook.focus()
+      // 重新计算下拉框位置
+      dropdownHook.resize()
     }
     else {
       singleSelectHook.value.value = null
@@ -83,71 +113,3 @@ export function useOption (props) {
 
   return hook
 }
-
-// 控制选项是否选中
-/*
-export function useSelector () {
-  let selected = ref(false)
-  function select () {
-    selected.value = true
-  }
-  function cancel () {
-    selected.value = false
-  }
-  function toggle () {
-    selected.value = !selected.value
-  }
-  return { selected, select, cancel, toggle }
-}
-*/
-
-/**
- * 处理Option与父组件Select的通信
- * @param {Reactive} props 
- * @param {useSelector} selectorHook 选项控制
- * @returns 
- */
-/*
-export function useOptionHandler (props, selectorHook) {
-  const handler = inject(SELECT_OPTIONS_KEY)
-  if (!handler) {
-    return
-  }
-
-  const { selected } = selectorHook
-
-  handler.onOptionCreated(props, selectorHook)
-  onBeforeUnmount(() => {
-    handler.onOptionDestroy(props)
-  })
-
-  // 点选选项回调
-  function selectHandler () {
-    handler.multiple ? _multipleSelectHandler() : _singleSelectHandler()
-  }
-
-  // 多选回调
-  function _multipleSelectHandler () {
-    // 多选时，点已选中的，变为取消，点未选中的，变为选中
-    if (selected.value) {
-      selected.value = false
-      handler.onOptionCancel(props)
-    }
-    else {
-      selected.value = true
-      handler.onOptionSelect(props)
-    }
-  }
-
-  // 单选回调
-  function _singleSelectHandler () {
-    // 单选时，点已选中的，无变化，点未选中的，变为选中
-    if (!selected.value) {
-      selected.value = true
-      handler.onOptionSelect(props)
-    }
-  }
-
-  return { selectHandler }
-}
-*/

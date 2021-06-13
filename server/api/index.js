@@ -4,17 +4,19 @@
  * @Author: Guo Kainan
  * @Date: 2020-12-24 10:29:20
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-22 14:13:18
+ * @LastEditTime: 2021-06-04 15:59:49
  */
 const test = require('./test')
 const blogContent = require('./blogContent')
 const customLogin = require('./customLogin')
+const blogList = require('./blogList')
 
 // 注册接口
 const INTERFACES = {
   test: test.main,
   blogContent: blogContent.main,
-  customLogin: customLogin.main
+  customLogin: customLogin.main,
+  blogList: blogList.main
 }
 
 
@@ -30,4 +32,5 @@ module.exports = function (app) {
   app.use('/api/test', test.router)
   app.use('/api/blogContent', blogContent.router)
   app.use('/api/customLogin', customLogin.router)
+  app.use('/api/blogList', blogList.router)
 }

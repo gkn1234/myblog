@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-16 11:20:51
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-18 15:39:23
+ * @LastEditTime: 2021-06-02 10:39:34
  */
 import { defineComponent, ref, onMounted } from 'vue'
 
@@ -28,6 +28,14 @@ export default defineComponent({
       default: false,
       type: Boolean
     },
+    file: {
+      default: null,
+      type: File
+    },
+    files: {
+      default: () => [],
+      type: [FileList, Array]
+    }
   },
   setup (props, { slots, emit }) {
     const { isDefaultTemplate } = uploaderTemplate(slots)
@@ -39,6 +47,8 @@ export default defineComponent({
     }
   }
 })
+
+
 
 // 组件样式相关
 function uploaderTemplate (slots) {

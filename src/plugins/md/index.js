@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-04 15:08:59
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-05 10:50:46
+ * @LastEditTime: 2021-06-04 11:19:02
  */
 import breaks from '@bytemd/plugin-breaks'
 import footnotes from '@bytemd/plugin-footnotes'
@@ -38,9 +38,9 @@ export const mdPlugins = [
   mermaid()
 ]
 
+// 生成主题样式
 const DEFAULT_THEME = 'github'
 const DEFAULT_HIGHLIGHT = 'default'
-
 export async function mdHandleTheme (file) {
   // 解析主题样式
   let themeKey = file.frontmatter && file.frontmatter.theme ? file.frontmatter.theme : DEFAULT_THEME
