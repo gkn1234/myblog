@@ -35,7 +35,7 @@ inputs:
         EnvId: myblog-0gvef4vz84623519
   layers:
     - name: myblog-layer
-      version: 8
+      version: 9
   staticConf:
     cosConf:
       bucket: myblog

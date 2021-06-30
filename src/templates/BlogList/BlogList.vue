@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-08 11:36:04
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-06-13 18:30:05
+ * @LastEditTime: 2021-06-13 20:17:13
 -->
 <template>
   <section class="blog-list">
@@ -44,4 +44,4 @@ function clickHandler (item) {
   })
 }
 
-</script>
+</script>.

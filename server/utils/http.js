@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-30 10:14:55
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-11 11:03:52
+ * @LastEditTime: 2021-06-13 19:15:25
  */
 const axios = require('axios')
 
@@ -61,7 +61,7 @@ function showStatus (status) {
 
 // 请求拦截器
 http.interceptors.request.use((config) => {
-  console.log(config)
+  // console.log(config)
   return config
 }, 
 (error) => {

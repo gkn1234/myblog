@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-05-12 10:19:27
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-21 17:23:11
+ * @LastEditTime: 2021-06-13 19:14:25
  */
 // 获取tcb配置
 import config from '$/client.config'
@@ -60,16 +60,19 @@ async function getModals (modals = []) {
 // 载入tcb的模块
 async function createModal (modal) {
   if (modal === 'db') {
-    await import('@cloudbase/js-sdk/database')
+    const { registerDatabase } = await import('@cloudbase/js-sdk/database')
+    registerDatabase(tcbInstance.tcb)
     tcbInstance[modal] = tcbInstance.tcb.database()
   }
   else if (modal === 'auth') {
-    await import('@cloudbase/js-sdk/auth')
+    const { registerAuth } = await import('@cloudbase/js-sdk/auth')
+    registerAuth(tcbInstance.tcb)
     tcbInstance[modal] = tcbInstance.tcb.auth({
       persistence: 'local'
     })
   }
   else if (modal === 'storage') {
-    await import('@cloudbase/js-sdk/storage')
+    const { registerStorage } = await import('@cloudbase/js-sdk/storage')
+    registerStorage(tcbInstance.tcb)
   }
 }

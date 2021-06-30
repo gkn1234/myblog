@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 09:01:31
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-05 11:00:24
+ * @LastEditTime: 2021-06-13 19:17:47
  */
 const path = require('path')
 const CONFIG = require('./server.config')
@@ -36,6 +36,9 @@ export default defineConfig({
   )],
   server: {
     port: CONFIG.port
+  },
+  build: {
+    polyfillDynamicImport: true
   },
   resolve: {
     alias: [

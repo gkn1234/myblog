@@ -4,7 +4,7 @@
  * @Author: Guo Kainan
  * @Date: 2021-04-21 09:01:31
  * @LastEditors: Guo Kainan
- * @LastEditTime: 2021-05-25 11:49:34
+ * @LastEditTime: 2021-06-13 20:12:51
  */
 import App from './App.vue'
 import { createSSRApp } from 'vue'
@@ -36,6 +36,7 @@ export function createApp() {
 
   // 用户数据
   app.use(userStore())
+
 
   return { app, router, apiService }
 }
