@@ -38,14 +38,14 @@ const config = {
   domain: 'service-i8gwrsjk-1255355961.gz.apigw.tencentcs.com',
 
   // 腾讯云相关
-  secretId: 'AKIDlWuEOPa2d3Vq04hmSo0Z5TxdPEkTjQk3',
-  secretKey: 'dRFa3X58uqluASR2mgn7S3cNnN9v8GE1',
+  secretId: 'xx',
+  secretKey: 'xx',
   // TCB环境，数据库需要这个环境
-  tcbEnvId: 'myblog-0gvef4vz84623519',
+  tcbEnvId: 'xx',
   tcbRegion: 'ap-guangzhou',
 
   // 存储桶COS目录
-  cosUrl: 'https://myblog-1255355961.cos.ap-guangzhou.myqcloud.com/',
+  cosUrl: 'https://xxx.ap-guangzhou.myqcloud.com/',
 
   // 数据库集合名
   dbCollections: {
