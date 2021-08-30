@@ -10,7 +10,7 @@
 
 const config = {
   // 腾讯云相关，连接登录、数据库、存储
-  tcbEnvId: 'myblog-0gvef4vz84623519',
+  tcbEnvId: 'xxx',
   // tcbEnvId: 'hello-cloudbase-4gkq77kf4a3c8e31',
   tcbRegion: 'ap-guangzhou',
 
